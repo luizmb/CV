@@ -23,6 +23,11 @@
                 "url": "https://github.com/luizmb"
             },
             {
+                "network": "GitHub",
+                "username": "SwiftRex",
+                "url": "https://github.com/SwiftRex"
+            },
+            {
                 "network": "LinkedIn",
                 "username": "luizmb",
                 "url": "https://linkedin.com/in/luizmb/en"
@@ -157,10 +162,9 @@
                     "position": "Senior Software Engineer",
                     "startDate": "2013-03-01",
                     "endDate": "2015-07-01",
-                    "showDetails": true,
+                    "showDetails": false,
                     "highlights": [
-                        "Co-led the Platforms team alongside the VP of Backend Systems, mentoring junior and mid-level developers and significantly improving development standards, CI processes and project management",
-                        "Built iOS, web and SmartTV player components and frameworks (Objective-C, C#, JavaScript) for major operator launches including Telenor MyTV, SKY Online and Telefónica"
+                        "Co-led the Platforms team; built iOS, web and SmartTV components (Obj-C, C#, JS) for Telenor MyTV, SKY Online and Telefónica"
                     ]
                 }
             ]
@@ -257,75 +261,54 @@
     "skills": [
         {
             "name": "Apple Platform",
-            "level": "100%",
             "keywords": [
-                "SwiftUI",
-                "UIKit",
-                "Combine",
-                "RxSwift",
-                "Swift Concurrency",
-                "XCTest",
-                "Snapshot testing",
-                "XCUITest",
-                "Swift Macros",
-                "SPM",
-                "CocoaPods",
-                "TCA",
-                "CoreBluetooth",
-                "CoreData",
-                "AVFoundation",
-                "Vapor",
-                "CLI apps",
-                "Swift 6",
-                "Objective-C"
+                "SwiftUI", "UIKit", "Combine", "RxSwift", "Swift Concurrency",
+                "Swift Macros", "SPM", "CocoaPods", "TCA",
+                "CoreBluetooth", "CoreData", "AVFoundation", "Vapor", "Swift 6", "Objective-C"
+            ]
+        },
+        {
+            "name": "Functional Programming",
+            "keywords": [
+                "Category Theory", "Algebraic types", "Monads · Functors · Applicatives",
+                "Tacit programming", "Immutable state", "Side-effect isolation",
+                "Declarative programming", "Composability", "Reactive programming"
+            ]
+        },
+        {
+            "name": "Testing",
+            "keywords": [
+                "TDD", "BDD", "Unit · Snapshot · E2E testing",
+                "Property-based testing", "Test pyramid", "XCTest", "XCUITest", "Quick · Nimble"
+            ]
+        },
+        {
+            "name": "AI & Agentic Development",
+            "keywords": [
+                "Claude Code", "GitHub Copilot", "OpenAI Codex",
+                "Agentic automation", "Prompt engineering", "LLM-assisted development"
             ]
         },
         {
             "name": "Software Engineering",
-            "level": "100%",
             "keywords": [
-                "Functional Programming",
-                "Applied Category Theory",
-                "Reactive Programming",
-                "TDD",
-                "Unit · Snapshot · E2E testing",
-                "Redux / Unidirectional dataflow",
-                "Clean architecture",
-                "Modularisation",
-                "CI/CD",
-                "Agentic automation (Claude Code)",
-                "MVVM",
-                "SOLID",
-                "Design Patterns",
-                "OOP"
+                "Redux / Unidirectional dataflow", "Clean architecture", "Modularisation",
+                "CI/CD", "MVVM", "SOLID", "Design Patterns", "OOP"
             ]
         },
         {
             "name": "Leadership",
-            "level": "75%",
             "keywords": [
-                "Tech leadership",
-                "People management",
-                "Mentorship",
-                "Agile",
-                "eXtreme Programming",
-                "Scrum",
-                "OKR"
+                "Tech leadership", "People management", "Mentorship",
+                "Agile", "eXtreme Programming", "Scrum", "OKR"
             ]
         },
         {
             "name": "Other platforms",
-            "level": "60%",
             "keywords": [
-                "Microsoft (C#, F#, .NET Core)",
-                "JVM (Java, Scala, Groovy)",
-                "Android (Kotlin)",
-                "Haskell",
-                "Rust",
-                "Cloud (AWS, Azure)",
-                "SQL and NoSQL",
-                "Web (Elm, Redux, React)",
-                "Embedded (Arduino, C++)"
+                "Microsoft (C#, F#, .NET Core)", "JVM (Java, Scala, Groovy)",
+                "Android (Kotlin)", "Haskell", "Rust",
+                "Cloud (AWS, Azure)", "SQL and NoSQL", "Web (Elm, Redux, React)", "Embedded (Arduino, C++)"
             ]
         }
     ],

@@ -1,0 +1,18 @@
+<div class="two-col">
+  <div class="col">
+    <section>
+      <h2>Open Source</h2>
+      {{#each projects oss-item}}
+    </section>
+  </div>
+  <div class="col last">
+    <section>
+      <h2>Education</h2>
+      {{#each education education-item}}
+    </section>
+    <section>
+      <h2>Languages</h2>
+      <p style="font-size:8pt">{{languages}}</p>
+    </section>
+  </div>
+</div>

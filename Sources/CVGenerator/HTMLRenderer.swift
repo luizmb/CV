@@ -6,52 +6,49 @@ struct HTMLRenderer {
     let resume: Resume
     let template: String
     let css: String
+    let fragmentsDir: String
 
     // MARK: - Entry point
 
     func render() -> String {
-        let github   = resume.basics.profiles.first { $0.network == "GitHub" }
-        let linkedin = resume.basics.profiles.first { $0.network == "LinkedIn" }
-
-        let linkedinHTML = linkedin.map {
-            "<a href=\"\(escAttr($0.url))\">\(esc($0.username))</a>"
-        } ?? ""
-        let githubHTML = github.map {
-            "<a href=\"https://github.com/\(escAttr($0.username))\">github.com/\(esc($0.username))</a>"
-        } ?? ""
-
-        return HTMLTemplating.render(template, [
-            "css":                css,
-            "name":               esc(resume.basics.name),
-            "label":              esc(resume.basics.label),
-            "email":              esc(resume.basics.email),
-            "phone":              esc(resume.basics.phone),
-            "linkedin":           linkedinHTML,
-            "github":             githubHTML,
-            "location":           esc("\(resume.basics.location.city), \(resume.basics.location.countryCode)"),
-            "visa":               esc(resume.basics.visa),
-            "summary":            resume.basics.summary,
-            "skills":             skills(),
-            "experience":         experience(),
-            "earlier_experience": earlierExperience(),
-            "footer":             footer(),
-        ])
+        HTMLTemplating.render(template, context(), fragmentsDir: fragmentsDir)
     }
 
-    // MARK: - Skills
+    // MARK: - Top-level context
 
-    private func skills() -> String {
-        let rows = resume.skills.map { group in
-            HTMLTemplating.render(
-                "<div class=\"skill-row\"><strong>{{name}}</strong>&nbsp; <span>{{keywords}}</span></div>",
-                ["name": esc(group.name), "keywords": esc(group.keywords.joined(separator: " · "))]
-            )
-        }.joined(separator: "\n  ")
-
-        return "<section>\n  <h2>Technical Skills</h2>\n  \(rows)\n</section>"
+    private func context() -> Context {
+        let githubs  = resume.basics.profiles.filter { $0.network == "GitHub" }
+        let linkedin = resume.basics.profiles.first  { $0.network == "LinkedIn" }
+        return [
+            "css":          .string(css),
+            "name":         .string(esc(resume.basics.name)),
+            "label":        .string(esc(resume.basics.label)),
+            "email":        .string(esc(resume.basics.email)),
+            "phone":        .string(esc(resume.basics.phone)),
+            "linkedin":     .string(linkedin.map { "<a href=\"\(escAttr($0.url))\">\(esc($0.username))</a>" } ?? ""),
+            "github":       .string(githubs.map { "<a href=\"https://github.com/\(escAttr($0.username))\">\(esc($0.username))</a>" }.joined(separator: ", ")),
+            "location":     .string(esc("\(resume.basics.location.city), \(resume.basics.location.countryCode)")),
+            "visa":         .string(esc(resume.basics.visa)),
+            "summary":      .string(resume.basics.summary),
+            "skills":       .list(resume.skills.map(skillContext)),
+            "jobs":         .list(detailedCompanies.map(jobContext)),
+            "earlier_jobs": .list(earlierCompanies.map(earlierJobContext)),
+            "projects":     .list(resume.projects.map(projectContext)),
+            "education":    .list(resume.education.map(educationContext)),
+            "languages":    .string(resume.languages
+                .map { esc("\($0.language) (\($0.fluency))") }
+                .joined(separator: " &nbsp;·&nbsp; ")),
+        ]
     }
 
-    // MARK: - Experience
+    // MARK: - Context builders
+
+    private func skillContext(_ group: SkillGroup) -> Context {
+        [
+            "name":     .string(esc(group.name)),
+            "keywords": .string(esc(group.keywords.joined(separator: " · "))),
+        ]
+    }
 
     private var detailedCompanies: [Company] {
         resume.work.filter { $0.positions.contains { $0.showDetails } }
@@ -61,136 +58,53 @@ struct HTMLRenderer {
         resume.work.filter { !$0.positions.contains { $0.showDetails } }
     }
 
-    private func experience() -> String {
-        let jobs = detailedCompanies.map(renderJob).joined(separator: "\n")
-        return "<section>\n  <h2>Professional Experience</h2>\n  \(jobs)\n</section>"
+    private func jobContext(_ company: Company) -> Context {
+        [
+            "company":   .string(esc(company.company)),
+            "location":  .string(esc(company.location.strippingFlagEmoji())),
+            "positions": .list(company.positions
+                .filter { $0.showDetails }
+                .map { positionContext($0, companySummary: company.summary) }),
+        ]
     }
 
-    private func renderJob(_ company: Company) -> String {
-        let positions = company.positions
-            .filter { $0.showDetails }
-            .map { pos -> String in
-                let start   = pos.startDate.formattedAsMonthYear()
-                let end     = pos.endDate?.formattedAsMonthYear() ?? "Present"
-                let bullets = pos.highlights
-                    .map { HTMLTemplating.render("<li>{{bullet}}</li>", ["bullet": $0]) }
-                    .joined(separator: "\n      ")
-                return HTMLTemplating.render("""
-                  <div class="role-line">
-                    <div class="rleft"><span class="title">{{title}}</span></div>
-                    <div class="rright"><span class="dates">{{dates}}</span></div>
-                  </div>
-                  <div class="jsummary">{{summary}}</div>
-                  <ul class="b">
-                    {{bullets}}
-                  </ul>
-                """, [
-                    "title":   esc(pos.position),
-                    "dates":   "\(start) – \(end)",
-                    "summary": esc(company.summary),
-                    "bullets": bullets,
-                ])
-            }.joined(separator: "\n")
-
-        return HTMLTemplating.render("""
-        <div class="job">
-          <div class="job-top">
-            <div class="jleft"><span class="company">{{company}}</span></div>
-            <div class="jright"><span class="location">{{location}}</span></div>
-          </div>
-          {{positions}}
-        </div>
-        """, [
-            "company":   esc(company.company),
-            "location":  esc(company.location.strippingFlagEmoji()),
-            "positions": positions,
-        ])
+    private func positionContext(_ pos: Position, companySummary: String) -> Context {
+        let start = pos.startDate.formattedAsMonthYear()
+        let end   = pos.endDate?.formattedAsMonthYear() ?? "Present"
+        return [
+            "title":           .string(esc(pos.position)),
+            "dates":           .string("\(start) – \(end)"),
+            "company_summary": .string(esc(companySummary)),
+            "bullets":         .list(pos.highlights.map { ["text": .string($0)] }),
+        ]
     }
 
-    // MARK: - Earlier experience
-
-    private func earlierExperience() -> String {
-        let items = earlierCompanies.map { company -> String in
-            let pos   = company.positions.first
-            let years = dateRange(start: pos?.startDate, end: pos?.endDate)
-            let note  = pos?.highlights.first.map { ": \($0)" } ?? ""
-            return HTMLTemplating.render(
-                "<li><strong>{{company}}</strong> — {{role}} ({{years}}){{note}}</li>",
-                [
-                    "company": esc(company.company),
-                    "role":    esc(pos?.position ?? ""),
-                    "years":   years,
-                    "note":    esc(note),
-                ]
-            )
-        }.joined(separator: "\n    ")
-
-        return "<section>\n  <h2>Earlier Experience</h2>\n  <ul class=\"b\">\n    \(items)\n  </ul>\n</section>"
+    private func earlierJobContext(_ company: Company) -> Context {
+        let pos   = company.positions.first
+        let start = pos?.startDate.prefix(4) ?? ""
+        let end   = pos?.endDate.map { $0.prefix(4) } ?? "Present"
+        return [
+            "company": .string(esc(company.company)),
+            "role":    .string(esc(pos?.position ?? "")),
+            "years":   .string("\(start)–\(end)"),
+            "note":    .string(esc(pos?.highlights.first.map { ": \($0)" } ?? "")),
+        ]
     }
 
-    // MARK: - Footer
-
-    private func footer() -> String {
-        let ossItems = resume.projects.map { proj in
-            HTMLTemplating.render("""
-            <div class="oss-item">
-              <strong>{{name}}</strong>
-              <p>{{description}} &nbsp;<a href="{{url}}">{{urlLabel}}</a></p>
-            </div>
-            """, [
-                "name":        esc(proj.name),
-                "description": esc(proj.description),
-                "url":         escAttr(proj.url),
-                "urlLabel":    esc(proj.url.replacingOccurrences(of: "https://", with: "")),
-            ])
-        }.joined(separator: "\n")
-
-        let edu = resume.education.map { e in
-            HTMLTemplating.render("""
-            <p style="font-size:8.1pt"><strong>{{institution}}</strong></p>
-            <p style="font-size:7.8pt;color:#6B7280">{{area}} &nbsp;·&nbsp; {{years}}</p>
-            """, [
-                "institution": esc(e.institution),
-                "area":        esc(e.area),
-                "years":       "\(yearOnly(e.startDate))–\(yearOnly(e.endDate))",
-            ])
-        }.joined(separator: "\n")
-
-        let langs = resume.languages
-            .map { esc("\($0.language) (\($0.fluency))") }
-            .joined(separator: " &nbsp;·&nbsp; ")
-
-        return """
-        <div class="two-col">
-          <div class="col">
-            <section>
-              <h2>Open Source</h2>
-              \(ossItems)
-            </section>
-          </div>
-          <div class="col last">
-            <section>
-              <h2>Education</h2>
-              \(edu)
-            </section>
-            <section>
-              <h2>Languages</h2>
-              <p style="font-size:8pt">\(langs)</p>
-            </section>
-          </div>
-        </div>
-        """
+    private func projectContext(_ proj: Project) -> Context {
+        [
+            "name":        .string(esc(proj.name)),
+            "description": .string(esc(proj.description)),
+            "url":         .string(escAttr(proj.url)),
+            "url_label":   .string(esc(proj.url.replacingOccurrences(of: "https://", with: ""))),
+        ]
     }
 
-    // MARK: - Helpers
-
-    private func dateRange(start: String?, end: String?) -> String {
-        let s = start.map { yearOnly($0) } ?? ""
-        let e = end.map { yearOnly($0) } ?? "Present"
-        return "\(s)–\(e)"
-    }
-
-    private func yearOnly(_ dateString: String) -> String {
-        String(dateString.prefix(4))
+    private func educationContext(_ e: Education) -> Context {
+        [
+            "institution": .string(esc(e.institution)),
+            "area":        .string(esc(e.area)),
+            "years":       .string("\(e.startDate.prefix(4))–\(e.endDate.prefix(4))"),
+        ]
     }
 }

@@ -1,0 +1,6 @@
+<section>
+  <h2>Earlier Experience</h2>
+  <ul class="b">
+    {{#each earlier_jobs earlier-item}}
+  </ul>
+</section>

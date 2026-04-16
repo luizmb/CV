@@ -12,20 +12,25 @@
   </div>
   <div class="hright">
     <span class="hcontact">
-      <strong>{{email}}</strong><br>
-      {{phone}}<br>
-      {{linkedin}}<br>
-      {{github}}<br>
+      <strong>Contacts:</strong> {{email}} &nbsp;·&nbsp; {{phone}}<br>
+      LinkedIn: {{linkedin}}<br>
+      GitHub: {{github}}<br>
       {{location}} &nbsp;·&nbsp; {{visa}}
     </span>
   </div>
 </div>
 <div class="content">
 <p class="summary">{{summary}}</p>
-{{skills}}
-{{experience}}
-{{earlier_experience}}
-{{footer}}
+<section>
+  <h2>Technical Skills</h2>
+  {{#each skills skill-row}}
+</section>
+<section>
+  <h2>Professional Experience</h2>
+  {{#each jobs job}}
+</section>
+{{#if earlier_jobs earlier-section}}
+{{#include footer}}
 </div>
 </body>
 </html>

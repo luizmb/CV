@@ -7,11 +7,10 @@ func printUsage() {
     Usage: CVGenerator --input <resume.json> [options]
 
     Options:
-      --input     Path to resume JSON file (default: resume-iOS.json)
-      --output    Output HTML file path (default: derived from input filename)
-      --template  Path to HTML template file (default: index.html)
-      --css       Path to CSS file (default: style.css)
-      --pdf       Also generate PDF via weasyprint (must be on PATH)
+      --input      Path to resume JSON file (default: resume-iOS.json)
+      --output     Output HTML file path (default: derived from input filename)
+      --templates  Directory containing index.html, style.css and fragment files (default: .)
+      --pdf        Also generate PDF via weasyprint (must be on PATH)
     """)
 }
 
@@ -22,13 +21,12 @@ func nextArg(after flag: String) -> String? {
     return String(args[args.index(after: idx)])
 }
 
-let inputPath    = nextArg(after: "--input")    ?? "resume-iOS.json"
+let inputPath    = nextArg(after: "--input")     ?? "resume-iOS.json"
 let outputArg    = nextArg(after: "--output")
-let templatePath = nextArg(after: "--template") ?? "index.html"
-let cssPath      = nextArg(after: "--css")      ?? "style.css"
+let templatesDir = nextArg(after: "--templates") ?? "Templates"
 let generatePDF  = args.contains("--pdf")
 
-// MARK: - Load files
+// MARK: - Load template files
 
 func load(_ path: String) -> String {
     guard let content = try? String(contentsOfFile: path, encoding: .utf8) else {
@@ -38,8 +36,8 @@ func load(_ path: String) -> String {
     return content
 }
 
-let template = load(templatePath)
-let css      = load(cssPath)
+let template = load("\(templatesDir)/index.html.template")
+let css      = load("\(templatesDir)/style.css")
 
 // MARK: - Load JSON
 
@@ -58,7 +56,12 @@ do {
 
 // MARK: - Render HTML
 
-let html = HTMLRenderer(resume: resume, template: template, css: css).render()
+let html = HTMLRenderer(
+    resume: resume,
+    template: template,
+    css: css,
+    fragmentsDir: templatesDir
+).render()
 
 let defaultName = inputPath
     .components(separatedBy: "/").last?

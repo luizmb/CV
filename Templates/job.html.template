@@ -1,0 +1,7 @@
+<div class="job">
+  <div class="job-top">
+    <div class="jleft"><span class="company">{{company}}</span></div>
+    <div class="jright"><span class="location">{{location}}</span></div>
+  </div>
+  {{#each positions position}}
+</div>

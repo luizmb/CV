@@ -1,0 +1,1 @@
+<div class="skill-row"><strong>{{name}}</strong>&nbsp; <span>{{keywords}}</span></div>

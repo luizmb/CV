@@ -1,0 +1,8 @@
+<div class="role-line">
+  <div class="rleft"><span class="title">{{title}}</span></div>
+  <div class="rright"><span class="dates">{{dates}}</span></div>
+</div>
+<div class="jsummary">{{company_summary}}</div>
+<ul class="b">
+  {{#each bullets bullet}}
+</ul>
