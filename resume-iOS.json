@@ -1,0 +1,435 @@
+{
+    "basics": {
+        "name": "Luiz Rodrigo Martins Barbosa",
+        "label": "iOS",
+        "picture": "http://www.gravatar.com/avatar/92ef79cccc2416ae3ac86a362e6d75f7?s=600&r=pg&d=mm",
+        "email": "luiz@ios.lu",
+        "birthday": "1982-04-23",
+        "phone": "+44 7828 640869",
+        "website": "https://linkedin.com/in/luizmb/en",
+        "visa": "EU Citizen",
+        "summary": "Software Engineer with leadership and mentoring skills who has broad expertise in a wide variety of technologies, programming languages, platforms, methodologies and good practices. Functional Programming and TDD enthusiast.",
+        "location": {
+            "address": "7 Sybil Phoenix Close",
+            "postalCode": "SE8 5BA",
+            "city": "London",
+            "countryCode": "UK",
+            "region": "London"
+        },
+        "profiles": [
+            {
+                "network": "GitHub",
+                "username": "luizmb",
+                "url": "https://github.com/luizmb"
+            },
+            {
+                "network": "LinkedIn",
+                "username": "luizmb",
+                "url": "https://linkedin.com/in/luizmb/en"
+            }
+        ]
+    },
+    "work": [
+        {
+            "company": "Plum FinTech",
+            "location": "🇬🇧 London - UK",
+            "summary": "FinTech that provides a platform to simplify and encourage money savings and investments, through automation and AI tools",
+            "website": "https://www.withplum.com",
+            "positions": [
+                {
+                    "position": "Senior iOS Engineer",
+                    "startDate": "2024-04-07",
+                    "showDetails": true,
+                    "highlights": [
+                        "Feature development in the Subscriptions squad, responsible for the most important company KPIs and revenue sources",
+                        "Extensive contribution to the iOS architecture and code patterns, by leveraging years of SwiftUI, Combine, TCA/Redux, TDD and Functional Programming knowledge to support writing testable, composable and reusable code",
+                        "Mentoring, fomenting knowledge sharing practices and writing articles (internal and for the company tech blog)"
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Huma Therapeutics",
+            "location": "🇬🇧 London - UK",
+            "summary": "British MedTech company that enables hospitals, universities and pharmaceutics to remotely monitor and research patients, throughout SaMD products",
+            "website": "https://www.huma.com",
+            "positions": [
+                {
+                    "position": "Lead iOS Engineer",
+                    "startDate": "2023-08-07",
+                    "endDate": "2024-02-22",
+                    "showDetails": true,
+                    "highlights": [
+                        "Technical leadership of 11 iOS engineers of different levels, most working from abroad"
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Delivery Hero",
+            "location": "🇩🇪 Berlin - Germany",
+            "summary": "German multinational online food, grocery and goods delivery service",
+            "website": "https://www.deliveryhero.com",
+            "positions": [
+                {
+                    "position": "Engineering Manager",
+                    "startDate": "2022-07-18",
+                    "endDate": "2023-06-30",
+                    "showDetails": true,
+                    "highlights": [
+                        "Code reviews (Swift, Kotlin, Go, Ruby) and architecture review for the native mobile apps and the backend hosted on AWS",
+                        "Contributions to the iOS platform guild and close collaboration with the iOS and Android staff engineers",
+                        "RFC/PRD writing and reviewing, feature design, grooming and architecture with the team",
+                        "Managing a cross-functional team (nine engineers: Android, iOS, backend) responsible for several parts of the Riders app"
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Lautsprecher Teufel",
+            "location": "🇩🇪 Berlin - Germany",
+            "summary": "Teufel is a traditional German loudspeaker brand that offers high-quality consumer audio products controllable via apps",
+            "website": "https://www.teufel.de",
+            "positions": [
+                {
+                    "position": "Lead iOS Engineer",
+                    "startDate": "2018-07-01",
+                    "endDate": "2022-06-30",
+                    "showDetails": true,
+                    "highlights": [
+                        "Technical leadership in a team of four, performing code review, pair programming and mentoring for junior and senior developers, as well as hiring, onboarding and tracking the performance, morale and pain-points of the team",
+                        "Responsible for the architecture of all the new iOS apps, using modern stack and best practices, such as SwiftUI, Combine, redux, pure Functional Programming (full isolation of side-effects and state mutation), TDD, documentation, framework oriented development and app modularity. All these projects were delivered in time, close to zero bugs or crashes",
+                        "Very close collaboration with management, POs/PMs and UX/UI helping to shape the new products and improving company processes. Technical discussion with several suppliers about complex app and hardware integration",
+                        "Development of several tools to automate everything that could be automated in our development process",
+                        "Introduced an open-source mindset to the whole Software team, that allowed the release of many of useful libraries in the company's Github and was also very beneficial when hiring new developers"
+                    ],
+                    "appStore": {
+                        "url": "apple.co/2uyg4ip",
+                        "qr": "teufel.png"
+                    }
+                }
+            ]
+        },
+        {
+            "company": "eBay Kleinanzeigen",
+            "location": "🇩🇪 Berlin - Germany",
+            "summary": "Platform for free, easy and local trades of goods and services that used to belong to eBay",
+            "website": "https://themen.ebay-kleinanzeigen.de/ueber-uns/",
+            "positions": [
+                {
+                    "position": "Senior iOS Software Engineer",
+                    "startDate": "2017-04-01",
+                    "endDate": "2018-06-30",
+                    "showDetails": true,
+                    "highlights": [
+                        "Maintenance and new features of the eBay Kleinanzeigen iOS app, one of the most popular apps in the country"
+                    ],
+                    "appStore": {
+                        "url": "apple.co/2yC2e1K",
+                        "qr": "ebay.png"
+                    }
+                }
+            ]
+        },
+        {
+            "company": "HERE Deutschland GmbH",
+            "location": "🇩🇪 Berlin - Germany",
+            "summary": "HERE is a map and routing company aimed to provide foundations for autonomous driving and better urban mobility",
+            "website": "http://company.here.com/",
+            "positions": [
+                {
+                    "position": "Senior Software and Release Engineer",
+                    "startDate": "2015-07-01",
+                    "endDate": "2017-03-31",
+                    "showDetails": true,
+                    "highlights": [
+                        "iOS CI-as-code (JobDSL, Groovy, Ruby/Rake, Bash) and iOS Development for the HERE WeGo app (Objective-C)",
+                        "Development of the white-label version for the HERE WeGo app"
+                    ],
+                    "appStore": {
+                        "url": "apple.co/2yzsfPt",
+                        "qr": "here.png"
+                    }
+                }
+            ]
+        },
+        {
+            "company": "UUX (now Agile Content)",
+            "location": "🇧🇷 São Paulo - Brazil",
+            "summary": "UUX provides network operators with the ultimate Internet-TV-as-a-Service (iTaaS) platform",
+            "website": "http://www.uux.com",
+            "positions": [
+                {
+                    "position": "Senior Software Engineer",
+                    "startDate": "2013-03-01",
+                    "endDate": "2015-07-01",
+                    "showDetails": true,
+                    "highlights": [
+                        "Together with the VP of Backend Systems, co-lead the Platforms team, supporting the junior and mid-level developers and improving significantly the processes, project management and development standards",
+                        "Development and maintenance of media encoder agents, CMS, EPG, video players and several frameworks for Web, Mobile and SmartTV apps (C#, Objective-C, C++, Javascript) such as Telenor MyTV, SKY Online and Telefónica"
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Accentiv' Mimética | Edenred Ticket",
+            "location": "🇧🇷 São Paulo - Brazil",
+            "summary": "Marketing agency pioneer in loyalty and incentive programs in Brazil",
+            "website": "http://www.accentiv.com.br",
+            "positions": [
+                {
+                    "position": "Senior .NET Software Engineer",
+                    "startDate": "2012-05-01",
+                    "endDate": "2013-03-01",
+                    "showDetails": false,
+                    "highlights": [
+                        "Maintenance and development of the product Ticket Frete (C#, ASP.NET, Javascript, SOAP and SQL Server)"
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Sonda Telsinc",
+            "location": "🇧🇷 São Paulo - Brazil",
+            "summary": "System Integrator focused on advanced technologies solutions and services, Cisco Gold Partner in Brazil",
+            "website": "http://www.sonda.com/en",
+            "positions": [
+                {
+                    "position": "Senior Software Engineer and Architect",
+                    "startDate": "2008-05-01",
+                    "endDate": "2012-05-01",
+                    "showDetails": false,
+                    "highlights": [
+                        "R&D for dozens of projects, creation of prototypes and MVPs, working closely with management and CEO",
+                        "Development of products for iPhone, PocketPC, embedded platforms, Cisco IP Phones and routers, as well as backend and web counterparts (C#, Java, Objective-C, C++)"
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Liberty Insurance Brazil",
+            "location": "🇧🇷 São Paulo - Brazil",
+            "summary": "Multinational insurance company",
+            "website": "http://www.libertyseguros.com.br",
+            "positions": [
+                {
+                    "position": "Senior .NET Software Developer",
+                    "startDate": "2007-08-01",
+                    "endDate": "2008-04-01",
+                    "showDetails": false,
+                    "highlights": [
+                        "Maintenance and development of the product Liberty Affinity (ASP.NET, SOAP and Oracle)"
+                    ]
+                }
+            ]
+        },
+        {
+            "company": "Agrisoft",
+            "location": "🇧🇷 São Paulo - Brazil",
+            "summary": "Brazilian company specialized in agricultural and livestock data management software for farm administration",
+            "website": "http://agrisoft.com.br",
+            "positions": [
+                {
+                    "position": "Technical Team Leader",
+                    "startDate": "2004-07-01",
+                    "endDate": "2007-08-01",
+                    "showDetails": false,
+                    "highlights": [
+                        "Technical leadership, team management, mentoring and performance review",
+                        "CI automation, system analysis and development, agile process improvements"
+                    ]
+                },
+                {
+                    "position": "Intern Programmer",
+                    "startDate": "2003-09-01",
+                    "endDate": "2004-07-01",
+                    "showDetails": false,
+                    "highlights": [
+                        "Development of desktop app (VB and SQL developer), PocketPC app (C# .NET Compact Framework) and Palm OS"
+                    ]
+                }
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "Cruzeiro do Sul University",
+            "area": "System Analysis and Development",
+            "studyType": "Technologist",
+            "location": "🇧🇷 São Paulo - Brazil",
+            "startDate": "2013-02-01",
+            "endDate": "2014-12-15",
+            "website": "http://www.cruzeirodosul.edu.br"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Apple Platform",
+            "level": "100%",
+            "keywords": [
+                "SwiftUI",
+                "UIKit",
+                "Combine",
+                "RxSwift",
+                "Modern concurrency",
+                "XCTest",
+                "Snapshot test",
+                "Swift Macros",
+                "SPM",
+                "CocoaPods",
+                "TCA",
+                "CoreBluetooth",
+                "CoreData",
+                "CoreLocation",
+                "AVFoundation",
+                "Vapor",
+                "NIO",
+                "CLI apps",
+                "Swift 5.9",
+                "Objective-C"
+            ]
+        },
+        {
+            "name": "Software Engineering",
+            "level": "100%",
+            "keywords": [
+                "TDD",
+                "Functional Programming",
+                "Reactive Programming",
+                "CI/CD",
+                "Redux",
+                "MVC",
+                "MVVM",
+                "VIPER",
+                "Coordinator",
+                "Clean architecture",
+                "Design Patterns",
+                "Big-O notation",
+                "SOLID",
+                "OOP",
+                "Applied Category Theory"
+            ]
+        },
+        {
+            "name": "Leadership",
+            "level": "75%",
+            "keywords": [
+                "Tech leadership",
+                "People management",
+                "Mentorship",
+                "Agile",
+                "eXtreme Programming",
+                "Scrum",
+                "OKR"
+            ]
+        },
+        {
+            "name": "Other platforms",
+            "level": "60%",
+            "keywords": [                
+                "Microsoft (C#, F#, VB, .NET Core)",
+                "JVM (Java, Scala, Groovy)",
+                "Android (Kotlin)",
+                "Haskell",
+                "Rust",
+                "Cloud (AWS, Azure)",
+                "SQL and NoSQL Databases",
+                "Web (Elm, Redux, React)",
+                "Embedded (PlatformIO, Arduino, C++)"
+            ]
+        }
+    ],
+    "languages": [
+        {
+            "language": "Portuguese",
+            "fluency": "Native speaker"
+        },
+        {
+            "language": "English",
+            "fluency": "Fluent speaker"
+        },
+        {
+            "language": "German",
+            "fluency": "Basic/A2"
+        }
+    ],
+    "interests": [
+        {
+            "name": "Music",
+            "keywords": [
+                "Guitars",
+                "Symphonic Heavy Metal",
+                "Classical",
+                "Opera",
+                "Jazz",
+                "Rock"
+            ]
+        },
+        {
+            "name": "Books",
+            "keywords": [
+                "Epic",
+                "Sci-fi",
+                "Technical",
+                "Thriller",
+                "Fantasia"
+            ]
+        },
+        {
+            "name": "Science",
+            "keywords": [
+                "Astronomy",
+                "Classical Physics",
+                "Quantum mechanics"
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "SwiftRex",
+            "description": "Library that provides Unidirectional Dataflow (redux) for SwiftUI and UIKit, powered by the reactive framework or your choice (Combine, RxSwift, ReactiveSwift)",
+            "highlights": [],
+            "keywords": [
+                "Redux",
+                "Reactive Programming",
+                "Unidirectional dataflow"
+            ],
+            "url": "https://github.com/SwiftRex",
+            "qr": "",
+            "roles": [
+                "Developer"
+            ],
+            "type": "oss-library"
+        },
+        {
+            "name": "Teufel repositories",
+            "description": "Useful libraries such as FoundationExtensions, UIExtensions and some Combine wrappers for complex async operations (Bonjour, WAMP, LongPolling, CoreBluetooth, EAP)",
+            "highlights": [],
+            "keywords": [],
+            "url": "https://github.com/teufelaudio",
+            "qr": "",
+            "roles": [
+                "Developer"
+            ],
+            "type": "oss-library"
+        },
+        {
+            "name": "Personal repositories",
+            "description": "Useful libraries such as CombineWebSocket, CombineNFC, RungeKutta, FunctionalParser",
+            "highlights": [],
+            "keywords": [],
+            "url": "https://github.com/luizmb?tab=repositories",
+            "qr": "",
+            "roles": [
+                "Developer"
+            ],
+            "type": "oss-library"
+        }
+    ],
+    "references": [
+        {
+            "name": "Jarbas Brito Segundo",
+            "reference": "Luiz is a great professional, he knows several programming languages​​. He is the main developer behind the development of \"batch processing\" in our team. In our spare time we talk a lot about arduino, iOS development and software architecture. This guy is flexible to work with any project."
+        }
+    ]
+}

@@ -1,0 +1,114 @@
+let css = """
+@page { size: A4; margin: 0; }
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 8.3pt;
+    color: #1F2937;
+    line-height: 1.34;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.header-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.header-table td {
+    background-color: #1A2E4A;
+    padding: 6mm 13mm 5mm 13mm;
+    vertical-align: middle;
+}
+.header-table td.hright {
+    text-align: right;
+    padding-left: 0;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+.hname {
+    font-size: 17pt;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.3px;
+    display: block;
+    margin-bottom: 2px;
+}
+.hlabel {
+    font-size: 8pt;
+    color: #A8D5D6;
+    display: block;
+}
+.hcontact {
+    font-size: 7.6pt;
+    color: #CBD5E1;
+    line-height: 1.62;
+}
+.hcontact strong { color: #FFFFFF; }
+.hcontact a { color: #A8D5D6; text-decoration: none; }
+
+/* ── Body ─────────────────────────────────────────────────── */
+.content { padding: 0 13mm 6mm 13mm; }
+
+.summary {
+    margin: 3mm 0 0 0;
+    font-size: 8.1pt;
+    color: #374151;
+    line-height: 1.44;
+}
+
+/* ── Sections ─────────────────────────────────────────────── */
+section { margin-top: 3mm; }
+section h2 {
+    font-size: 7.5pt;
+    font-weight: 700;
+    color: #0D7377;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    padding-bottom: 1px;
+    border-bottom: 1.5px solid #0D7377;
+    margin-bottom: 1.8mm;
+}
+
+/* ── Skills ───────────────────────────────────────────────── */
+.skill-row { font-size: 8pt; margin-bottom: 1.2px; }
+.skill-row strong { color: #1F2937; }
+.skill-row span { color: #6B7280; }
+
+/* ── Jobs ─────────────────────────────────────────────────── */
+.job { margin-bottom: 2mm; }
+.job-top   { display: table; width: 100%; }
+.job-top .jleft  { display: table-cell; }
+.job-top .jright { display: table-cell; text-align: right; white-space: nowrap; vertical-align: top; }
+.company { font-weight: 700; font-size: 8.5pt; color: #1F2937; }
+.location { font-size: 7.4pt; color: #6B7280; }
+.role-line { display: table; width: 100%; margin-bottom: 0.5px; }
+.role-line .rleft  { display: table-cell; }
+.role-line .rright { display: table-cell; text-align: right; white-space: nowrap; }
+.title  { font-style: italic; font-size: 8pt; color: #0D7377; }
+.dates  { font-size: 7.4pt; color: #6B7280; }
+.jsummary { font-size: 7.4pt; color: #6B7280; font-style: italic; margin-bottom: 0.5px; }
+ul.b { list-style: none; padding-left: 0; margin: 0; }
+ul.b li {
+    font-size: 7.9pt;
+    color: #1F2937;
+    padding-left: 9px;
+    position: relative;
+    margin-bottom: 0.6px;
+}
+ul.b li::before { content: "–"; position: absolute; left: 0; color: #0D7377; }
+
+/* ── Two-col footer ───────────────────────────────────────── */
+.two-col { display: table; width: 100%; margin-top: 3mm; border-collapse: collapse; }
+.two-col .col      { display: table-cell; vertical-align: top; padding-right: 8mm; }
+.two-col .col.last { padding-right: 0; width: 42%; }
+.two-col section   { margin-top: 0; }
+.two-col .col.last section + section { margin-top: 3mm; }
+.oss-item { margin-bottom: 2px; }
+.oss-item strong { font-size: 8pt; }
+.oss-item p { font-size: 7.8pt; color: #374151; }
+a { color: #0D7377; text-decoration: none; }
+"""
