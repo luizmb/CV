@@ -7,14 +7,14 @@
         "birthday": "1982-04-23",
         "phone": "+44 7828 640869",
         "website": "https://linkedin.com/in/luizmb/en",
-        "visa": "EU Citizen",
-        "summary": "Senior iOS engineer with 23+ years across FinTech, MedTech, consumer and marketplace apps. Specialises in SwiftUI, Combine and pure functional programming — immutable state, side-effect isolation, declarative reactive pipelines — with a consistent record of near-zero-defect, fully tested codebases. Creator of <strong>SwiftRex</strong> and active open-source contributor. Early adopter of agentic development workflows using Claude Code.",
+        "visa": "Skilled Worker visa",
+        "summary": "Engineer with 23+ years across FinTech, MedTech, consumer and marketplace apps. Specialises in SwiftUI, Combine and pure functional programming — immutable state, side-effect isolation, declarative reactive pipelines — with a consistent record of near-zero-defect, fully tested codebases. Creator and active contributor to multiple open-source projects. Early adopter of agentic development workflows using Claude Code.",
         "location": {
-            "address": "7 Sybil Phoenix Close",
-            "postalCode": "SE8 5BA",
-            "city": "London",
+            "address": "23 Ormsby Close",
+            "postalCode": "LU1 3SN",
+            "city": "Luton",
             "countryCode": "UK",
-            "region": "London"
+            "region": "Bedfordshire"
         },
         "profiles": [
             {
@@ -259,53 +259,57 @@
         {
             "name": "Apple Platform",
             "keywords": [
-                "SwiftUI", "UIKit", "Combine", "RxSwift", "Swift Concurrency",
-                "Swift Macros", "SPM", "CocoaPods", "TCA",
-                "CoreBluetooth", "CoreData", "AVFoundation", "Vapor", "Swift 6", "Objective-C"
+                "SwiftUI", "UIKit", "Combine", "RxSwift", "Modern Concurrency", "TCA", "Swift Macros",
+                "SPM", "CoreBluetooth", "Swift Data", "AVFoundation", "SwiftNIO", "Vapor", "CoreML",
+                "Swift Async Algorithms", "CoreLocation", "GCD"
             ]
         },
         {
             "name": "Functional Programming",
             "keywords": [
-                "Category Theory", "Algebraic types", "Monads · Functors · Applicatives",
+                "Category Theory", "Algebraic types", "FAM+ (Functors/Applicatives/Monads/+)",
                 "Tacit programming", "Immutable state", "Side-effect isolation",
-                "Declarative programming", "Composability", "Reactive programming"
+                "Declarative programming", "Composability", "Reactive programming",
+                "Operators and precedence"
             ]
         },
         {
             "name": "Testing",
             "keywords": [
-                "TDD", "BDD", "Unit · Snapshot · E2E testing",
-                "Property-based testing", "Test pyramid", "XCTest", "XCUITest", "Quick · Nimble"
+                "TDD", "BDD", "Unit tests", "Functional tests", "Snapshot tests", "Integration tests",
+                "E2E tests", "Test pyramid", "Swift Testing", "XCTest", "XCUITest"
             ]
         },
         {
             "name": "AI & Agentic Development",
             "keywords": [
-                "Claude Code", "GitHub Copilot", "OpenAI Codex",
-                "Agentic automation", "Prompt engineering", "LLM-assisted development"
+                "Skill Building", "Agentic automation", "Claude Code", "GitHub Copilot",
+                "OpenAI Codex", "LLM-assisted development", "Process automation (Jira, GitHub, Notion/Markdown) via LLMs"
             ]
         },
         {
             "name": "Software Engineering",
             "keywords": [
                 "Redux / Unidirectional dataflow", "Clean architecture", "Modularisation",
-                "CI/CD", "MVVM", "SOLID", "Design Patterns", "OOP"
+                "CI/CD", "MVVM", "SOLID", "Coordinators", "Design Patterns", "FP", "OOP",
+                "Backend-driven UI", "BFF", "Documentation", "Code reviews", "Refactoring",
+                "Tech Design"
             ]
         },
         {
             "name": "Leadership",
             "keywords": [
                 "Tech leadership", "People management", "Mentorship",
-                "Agile", "eXtreme Programming", "Scrum", "OKR"
+                "Agile", "eXtreme Programming", "Scrum", "OKR", "Hiring/Interviewing",
+                "Performance management"
             ]
         },
         {
             "name": "Other platforms",
             "keywords": [
+                "Haskell", "Rust", "Android (Kotlin)",
                 "Microsoft (C#, F#, .NET Core)", "JVM (Java, Scala, Groovy)",
-                "Android (Kotlin)", "Haskell", "Rust",
-                "Cloud (AWS, Azure)", "SQL and NoSQL", "Web (Elm, Redux, React)", "Embedded (Arduino, C++)"
+                "Cloud (AWS, Azure)", "SQL and NoSQL", "Web (Elm, Redux, React)", "Embedded (C++, Espressif/PlatformIO, Arduino)"
             ]
         }
     ],
@@ -330,14 +334,14 @@
             "url": "https://github.com/SwiftRex"
         },
         {
+            "name": "Personal repositories",
+            "description": "FP, CombineWebSocket, CombineNFC, Runge-Kutta numerical method solver for Differential Equations (Calculus), FunctionalParser and many other projects",
+            "url": "https://github.com/luizmb?tab=repositories"
+        },
+        {
             "name": "Teufel repositories",
             "description": "FoundationExtensions, UIExtensions and Combine wrappers for Bonjour, WAMP, LongPolling, CoreBluetooth and EAP async protocols",
             "url": "https://github.com/teufelaudio"
-        },
-        {
-            "name": "Personal repositories",
-            "description": "CombineWebSocket, CombineNFC, RungeKutta numerical solver, FunctionalParser and other Swift experiments",
-            "url": "https://github.com/luizmb?tab=repositories"
         }
     ]
 }

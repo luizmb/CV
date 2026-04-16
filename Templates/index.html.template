@@ -13,8 +13,8 @@
   <div class="hright">
     <span class="hcontact">
       <strong>Contacts:</strong> {{email}} &nbsp;·&nbsp; {{phone}}<br>
-      LinkedIn: {{linkedin}}<br>
-      GitHub: {{github}}<br>
+      <strong>LinkedIn:</strong> {{linkedin}}<br>
+      <strong>GitHub:</strong> {{github}}<br>
       {{location}} &nbsp;·&nbsp; {{visa}}
     </span>
   </div>
