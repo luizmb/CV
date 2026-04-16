@@ -1,179 +1,163 @@
 import Foundation
+import HTMLTemplating
 
 struct HTMLRenderer {
 
     let resume: Resume
-    let variant: Variant
+    let template: String
+    let css: String
 
     // MARK: - Entry point
 
     func render() -> String {
-        """
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-        <meta charset="UTF-8">
-        <style>\(css)</style>
-        </head>
-        <body>
-        \(header())
-        <div class="content">
-        \(summary())
-        \(skills())
-        \(experience())
-        \(earlierExperience())
-        \(footer())
-        </div>
-        </body>
-        </html>
-        """
-    }
-
-    // MARK: - Header
-
-    private func header() -> String {
-        let github = resume.basics.profiles.first { $0.network == "GitHub" }
+        let github   = resume.basics.profiles.first { $0.network == "GitHub" }
         let linkedin = resume.basics.profiles.first { $0.network == "LinkedIn" }
 
-        return """
-        <table class="header-table"><tr>
-          <td>
-            <span class="hname">\(resume.basics.name)</span>
-            <span class="hlabel">\(variant.label)</span>
-          </td>
-          <td class="hright">
-            <span class="hcontact">
-              <strong>\(resume.basics.email)</strong><br>
-              \(resume.basics.phone)<br>
-              \(linkedin.map { "<a href=\"\($0.url)\">\($0.username)</a>" } ?? "")<br>
-              \(github.map { "<a href=\"https://github.com/\($0.username)\">github.com/\($0.username)</a>" } ?? "")<br>
-              \(resume.basics.location.city), \(resume.basics.location.countryCode) &nbsp;·&nbsp; \(resume.basics.visa)
-            </span>
-          </td>
-        </tr></table>
-        """
-    }
+        let linkedinHTML = linkedin.map {
+            "<a href=\"\(escAttr($0.url))\">\(esc($0.username))</a>"
+        } ?? ""
+        let githubHTML = github.map {
+            "<a href=\"https://github.com/\(escAttr($0.username))\">github.com/\(esc($0.username))</a>"
+        } ?? ""
 
-    // MARK: - Summary
-
-    private func summary() -> String {
-        "<p class=\"summary\">\(variant.summary)</p>"
+        return HTMLTemplating.render(template, [
+            "css":                css,
+            "name":               esc(resume.basics.name),
+            "label":              esc(resume.basics.label),
+            "email":              esc(resume.basics.email),
+            "phone":              esc(resume.basics.phone),
+            "linkedin":           linkedinHTML,
+            "github":             githubHTML,
+            "location":           esc("\(resume.basics.location.city), \(resume.basics.location.countryCode)"),
+            "visa":               esc(resume.basics.visa),
+            "summary":            resume.basics.summary,
+            "skills":             skills(),
+            "experience":         experience(),
+            "earlier_experience": earlierExperience(),
+            "footer":             footer(),
+        ])
     }
 
     // MARK: - Skills
 
     private func skills() -> String {
         let rows = resume.skills.map { group in
-            let tags = group.keywords.joined(separator: " · ")
-            return "<div class=\"skill-row\"><strong>\(group.name)</strong>&nbsp; <span>\(tags)</span></div>"
-        }.joined(separator: "\n")
+            HTMLTemplating.render(
+                "<div class=\"skill-row\"><strong>{{name}}</strong>&nbsp; <span>{{keywords}}</span></div>",
+                ["name": esc(group.name), "keywords": esc(group.keywords.joined(separator: " · "))]
+            )
+        }.joined(separator: "\n  ")
 
-        return """
-        <section>
-          <h2>Technical Skills</h2>
-          \(rows)
-        </section>
-        """
+        return "<section>\n  <h2>Technical Skills</h2>\n  \(rows)\n</section>"
     }
 
     // MARK: - Experience
 
-    // Companies shown in detail (showDetails = true)
     private var detailedCompanies: [Company] {
         resume.work.filter { $0.positions.contains { $0.showDetails } }
     }
 
-    // Companies shown only in the "Earlier" condensed list
     private var earlierCompanies: [Company] {
         resume.work.filter { !$0.positions.contains { $0.showDetails } }
     }
 
     private func experience() -> String {
         let jobs = detailedCompanies.map(renderJob).joined(separator: "\n")
-        return """
-        <section>
-          <h2>Professional Experience</h2>
-          \(jobs)
-        </section>
-        """
+        return "<section>\n  <h2>Professional Experience</h2>\n  \(jobs)\n</section>"
     }
 
     private func renderJob(_ company: Company) -> String {
-        let locationClean = company.location.strippingFlagEmoji()
-        let extras = variant.extraBullets[company.company] ?? []
-
         let positions = company.positions
             .filter { $0.showDetails }
             .map { pos -> String in
-                let start = pos.startDate.formattedAsMonthYear()
-                let end = pos.endDate?.formattedAsMonthYear() ?? "Present"
-                let allBullets = pos.highlights + (pos === company.positions.last ? extras : [])
-                let bullets = allBullets.map { "<li>\($0)</li>" }.joined(separator: "\n      ")
-                return """
+                let start   = pos.startDate.formattedAsMonthYear()
+                let end     = pos.endDate?.formattedAsMonthYear() ?? "Present"
+                let bullets = pos.highlights
+                    .map { HTMLTemplating.render("<li>{{bullet}}</li>", ["bullet": $0]) }
+                    .joined(separator: "\n      ")
+                return HTMLTemplating.render("""
                   <div class="role-line">
-                    <div class="rleft"><span class="title">\(pos.position)</span></div>
-                    <div class="rright"><span class="dates">\(start) – \(end)</span></div>
+                    <div class="rleft"><span class="title">{{title}}</span></div>
+                    <div class="rright"><span class="dates">{{dates}}</span></div>
                   </div>
-                  <div class="jsummary">\(company.summary)</div>
+                  <div class="jsummary">{{summary}}</div>
                   <ul class="b">
-                    \(bullets)
+                    {{bullets}}
                   </ul>
-                """
+                """, [
+                    "title":   esc(pos.position),
+                    "dates":   "\(start) – \(end)",
+                    "summary": esc(company.summary),
+                    "bullets": bullets,
+                ])
             }.joined(separator: "\n")
 
-        return """
+        return HTMLTemplating.render("""
         <div class="job">
           <div class="job-top">
-            <div class="jleft"><span class="company">\(company.company)</span></div>
-            <div class="jright"><span class="location">\(locationClean)</span></div>
+            <div class="jleft"><span class="company">{{company}}</span></div>
+            <div class="jright"><span class="location">{{location}}</span></div>
           </div>
-          \(positions)
+          {{positions}}
         </div>
-        """
+        """, [
+            "company":   esc(company.company),
+            "location":  esc(company.location.strippingFlagEmoji()),
+            "positions": positions,
+        ])
     }
 
-    // MARK: - Earlier experience (condensed)
+    // MARK: - Earlier experience
 
     private func earlierExperience() -> String {
         let items = earlierCompanies.map { company -> String in
-            let pos = company.positions.first
+            let pos   = company.positions.first
             let years = dateRange(start: pos?.startDate, end: pos?.endDate)
-            let highlights = pos?.highlights.first.map { ": \($0)" } ?? ""
-            return "<li><strong>\(company.company)</strong> — \(pos?.position ?? "") (\(years))\(highlights)</li>"
+            let note  = pos?.highlights.first.map { ": \($0)" } ?? ""
+            return HTMLTemplating.render(
+                "<li><strong>{{company}}</strong> — {{role}} ({{years}}){{note}}</li>",
+                [
+                    "company": esc(company.company),
+                    "role":    esc(pos?.position ?? ""),
+                    "years":   years,
+                    "note":    esc(note),
+                ]
+            )
         }.joined(separator: "\n    ")
 
-        return """
-        <section>
-          <h2>Earlier Experience</h2>
-          <ul class="b">
-            \(items)
-          </ul>
-        </section>
-        """
+        return "<section>\n  <h2>Earlier Experience</h2>\n  <ul class=\"b\">\n    \(items)\n  </ul>\n</section>"
     }
 
-    // MARK: - Footer (OSS + Education + Languages)
+    // MARK: - Footer
 
     private func footer() -> String {
         let ossItems = resume.projects.map { proj in
-            """
+            HTMLTemplating.render("""
             <div class="oss-item">
-              <strong>\(proj.name)</strong>
-              <p>\(proj.description) &nbsp;<a href="\(proj.url)">\(proj.url.replacingOccurrences(of: "https://", with: ""))</a></p>
+              <strong>{{name}}</strong>
+              <p>{{description}} &nbsp;<a href="{{url}}">{{urlLabel}}</a></p>
             </div>
-            """
+            """, [
+                "name":        esc(proj.name),
+                "description": esc(proj.description),
+                "url":         escAttr(proj.url),
+                "urlLabel":    esc(proj.url.replacingOccurrences(of: "https://", with: "")),
+            ])
         }.joined(separator: "\n")
 
         let edu = resume.education.map { e in
-            let years = "\(yearOnly(e.startDate))–\(yearOnly(e.endDate))"
-            return """
-            <p style="font-size:8.1pt"><strong>\(e.institution)</strong></p>
-            <p style="font-size:7.8pt;color:#6B7280">\(e.area) &nbsp;·&nbsp; \(years)</p>
-            """
+            HTMLTemplating.render("""
+            <p style="font-size:8.1pt"><strong>{{institution}}</strong></p>
+            <p style="font-size:7.8pt;color:#6B7280">{{area}} &nbsp;·&nbsp; {{years}}</p>
+            """, [
+                "institution": esc(e.institution),
+                "area":        esc(e.area),
+                "years":       "\(yearOnly(e.startDate))–\(yearOnly(e.endDate))",
+            ])
         }.joined(separator: "\n")
 
         let langs = resume.languages
-            .map { "\($0.language) (\($0.fluency))" }
+            .map { esc("\($0.language) (\($0.fluency))") }
             .joined(separator: " &nbsp;·&nbsp; ")
 
         return """
@@ -208,12 +192,5 @@ struct HTMLRenderer {
 
     private func yearOnly(_ dateString: String) -> String {
         String(dateString.prefix(4))
-    }
-}
-
-// Equatable helper for Position (used in extras injection)
-extension Position: Equatable {
-    static func == (lhs: Position, rhs: Position) -> Bool {
-        lhs.position == rhs.position && lhs.startDate == rhs.startDate
     }
 }

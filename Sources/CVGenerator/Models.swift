@@ -15,6 +15,7 @@ struct Resume: Decodable {
 
 struct Basics: Decodable {
     let name: String
+    let label: String
     let email: String
     let phone: String
     let website: String

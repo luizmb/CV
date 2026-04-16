@@ -4,46 +4,53 @@ import Foundation
 
 func printUsage() {
     print("""
-    Usage: CVGenerator --input <resume.json> --variant <staff|senior> [--output <file.html>] [--pdf]
+    Usage: CVGenerator --input <resume.json> [options]
 
     Options:
-      --input    Path to resume JSON file (default: resume-iOS.json)
-      --variant  staff or senior (default: staff)
-      --output   Output HTML file path (default: CV_<Variant>.html)
-      --pdf      Also generate PDF via weasyprint (must be on PATH)
+      --input     Path to resume JSON file (default: resume-iOS.json)
+      --output    Output HTML file path (default: derived from input filename)
+      --template  Path to HTML template file (default: index.html)
+      --css       Path to CSS file (default: style.css)
+      --pdf       Also generate PDF via weasyprint (must be on PATH)
     """)
 }
 
-var args = CommandLine.arguments.dropFirst()
+let args = CommandLine.arguments.dropFirst()
 
 func nextArg(after flag: String) -> String? {
     guard let idx = args.firstIndex(of: flag), args.index(after: idx) < args.endIndex else { return nil }
     return String(args[args.index(after: idx)])
 }
 
-let inputPath  = nextArg(after: "--input")  ?? "resume-iOS.json"
-let variantRaw = nextArg(after: "--variant") ?? "staff"
-let outputArg  = nextArg(after: "--output")
-let generatePDF = args.contains("--pdf")
+let inputPath    = nextArg(after: "--input")    ?? "resume-iOS.json"
+let outputArg    = nextArg(after: "--output")
+let templatePath = nextArg(after: "--template") ?? "index.html"
+let cssPath      = nextArg(after: "--css")      ?? "style.css"
+let generatePDF  = args.contains("--pdf")
 
-guard let variant = Variant(rawValue: variantRaw) else {
-    fputs("Error: unknown variant '\(variantRaw)'. Use 'staff' or 'senior'.\n", stderr)
-    printUsage()
-    exit(1)
+// MARK: - Load files
+
+func load(_ path: String) -> String {
+    guard let content = try? String(contentsOfFile: path, encoding: .utf8) else {
+        fputs("Error: cannot read file at \(path)\n", stderr)
+        exit(1)
+    }
+    return content
 }
+
+let template = load(templatePath)
+let css      = load(cssPath)
 
 // MARK: - Load JSON
 
-let inputURL = URL(fileURLWithPath: inputPath)
-guard let data = try? Data(contentsOf: inputURL) else {
+guard let data = try? Data(contentsOf: URL(fileURLWithPath: inputPath)) else {
     fputs("Error: cannot read file at \(inputPath)\n", stderr)
     exit(1)
 }
 
-let decoder = JSONDecoder()
 let resume: Resume
 do {
-    resume = try decoder.decode(Resume.self, from: data)
+    resume = try JSONDecoder().decode(Resume.self, from: data)
 } catch {
     fputs("Error decoding JSON: \(error)\n", stderr)
     exit(1)
@@ -51,11 +58,13 @@ do {
 
 // MARK: - Render HTML
 
-let renderer = HTMLRenderer(resume: resume, variant: variant)
-let html = renderer.render()
+let html = HTMLRenderer(resume: resume, template: template, css: css).render()
 
-let variantLabel = variantRaw.prefix(1).uppercased() + variantRaw.dropFirst()
-let htmlPath = outputArg ?? "CV_\(variantLabel)_iOS.html"
+let defaultName = inputPath
+    .components(separatedBy: "/").last?
+    .replacingOccurrences(of: ".json", with: ".html")
+    ?? "CV.html"
+let htmlPath = outputArg ?? defaultName
 let htmlURL  = URL(fileURLWithPath: htmlPath)
 
 do {
@@ -72,7 +81,7 @@ if generatePDF {
     let pdfPath = htmlPath.replacingOccurrences(of: ".html", with: ".pdf")
     let task = Process()
     task.executableURL = URL(fileURLWithPath: "/usr/bin/env")
-    task.arguments = ["weasyprint", htmlPath, pdfPath]
+    task.arguments = ["weasyprint", "--presentational-hints", htmlPath, pdfPath]
     task.standardOutput = FileHandle.standardOutput
     task.standardError  = FileHandle.standardError
 
@@ -86,7 +95,7 @@ if generatePDF {
             exit(Int32(task.terminationStatus))
         }
     } catch {
-        fputs("Error running weasyprint: \(error)\nMake sure weasyprint is installed: pip install weasyprint\n", stderr)
+        fputs("Error running weasyprint: \(error)\nMake sure weasyprint is installed.\n", stderr)
         exit(1)
     }
 }

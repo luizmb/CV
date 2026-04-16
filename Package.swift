@@ -4,13 +4,14 @@ import PackageDescription
 let package = Package(
     name: "CVGenerator",
     platforms: [.macOS(.v13)],
+    dependencies: [
+        .package(path: "Packages/HTMLTemplating"),
+    ],
     targets: [
         .executableTarget(
             name: "CVGenerator",
-            path: "Sources/CVGenerator",
-            resources: [
-                .copy("../../Resources")
-            ]
+            dependencies: ["HTMLTemplating"],
+            path: "Sources/CVGenerator"
         )
     ]
 )
