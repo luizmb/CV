@@ -1,0 +1,4 @@
+<section id="earlier-work">
+  <h2>Earlier Experience</h2>
+  {{#each earlier_jobs earlier-item}}
+</section>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>{{css}}</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="sidebar">
+    <span class="hname">{{name}}</span>
+    <span class="hlabel">{{label}}</span>
+
+    <div class="sb-section">
+      <h3>Contact</h3>
+      <div class="sb-contact">{{email}}</div>
+      <div class="sb-contact">{{phone}}</div>
+      <div class="sb-contact">{{linkedin}}</div>
+      <div class="sb-contact">{{github}}</div>
+      <div class="sb-contact">{{location}} &nbsp;&middot;&nbsp; {{visa}}</div>
+    </div>
+
+    <div class="sb-section">
+      <h3>Skills</h3>
+      {{#each skills skill-row}}
+    </div>
+
+    <div class="sb-section">
+      <h3>Education</h3>
+      {{#each education education-item}}
+    </div>
+
+    <div class="sb-section">
+      <h3>Languages</h3>
+      <p class="sb-text">{{languages}}</p>
+    </div>
+
+    <div class="sb-section">
+      <h3>Open Source</h3>
+      {{#each projects oss-item}}
+    </div>
+  </div>
+  <div class="main">
+    <p class="summary">{{summary}}</p>
+    <section>
+      <h2>Professional Experience</h2>
+      {{#each jobs job}}
+    </section>
+    {{#if earlier_jobs earlier-section}}
+  </div>
+</div>
+</body>
+</html>

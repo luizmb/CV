@@ -1,0 +1,4 @@
+<div class="oss-item">
+  <strong>{{name}}</strong>
+  <p>{{description}} &nbsp;<a href="{{url}}">{{url_label}}</a></p>
+</div>

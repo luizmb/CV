@@ -73,34 +73,44 @@ struct HTMLRenderer {
 
     private func jobContext(_ company: Company) -> Context {
         [
-            "company":   .string(esc(company.company)),
-            "location":  .string(esc(company.location.strippingFlagEmoji())),
-            "positions": .list(company.positions
+            "company":         .string(esc(company.company)),
+            "location":        .string(esc(company.location.strippingFlagEmoji())),
+            "website":         .string(esc(company.website)),
+            "company_summary": .string(esc(company.summary)),
+            "positions":       .list(company.positions
                 .filter { $0.showDetails }
                 .map { positionContext($0, companySummary: company.summary) }),
         ]
     }
 
     private func positionContext(_ pos: Position, companySummary: String) -> Context {
-        let start = pos.startDate.formattedAsYear()
-        let end   = pos.endDate?.formattedAsYear() ?? "Present"
+        let start     = pos.startDate.formattedAsYear()
+        let end       = pos.endDate?.formattedAsYear() ?? "Present"
+        let startLong = pos.startDate.formattedAsLongMonthYear()
+        let endLong   = pos.endDate?.formattedAsLongMonthYear() ?? "Present"
         return [
             "title":           .string(esc(pos.position)),
             "dates":           .string("\(start) – \(end)"),
+            "dates_long":      .string("\(startLong) — \(endLong)"),
             "company_summary": .string(esc(companySummary)),
             "bullets":         .list(pos.highlights.map { ["text": .string($0)] }),
         ]
     }
 
     private func earlierJobContext(_ company: Company) -> Context {
-        let pos   = company.positions.first
-        let start = pos?.startDate.formattedAsYear() ?? ""
-        let end   = pos?.endDate?.formattedAsYear() ?? "Present"
+        let pos       = company.positions.first
+        let start     = pos?.startDate.formattedAsYear() ?? ""
+        let end       = pos?.endDate?.formattedAsYear() ?? "Present"
+        let startLong = pos?.startDate.formattedAsLongMonthYear() ?? ""
+        let endLong   = pos?.endDate?.formattedAsLongMonthYear() ?? "Present"
         return [
-            "company": .string(esc(company.company)),
-            "role":    .string(esc(pos?.position ?? "")),
-            "years":   .string("\(start)–\(end)"),
-            "note":    .string(esc(pos?.highlights.first.map { ": \($0)" } ?? "")),
+            "company":    .string(esc(company.company)),
+            "location":   .string(esc(company.location.strippingFlagEmoji())),
+            "website":    .string(esc(company.website)),
+            "role":       .string(esc(pos?.position ?? "")),
+            "years":      .string("\(start)–\(end)"),
+            "years_long": .string("\(startLong) — \(endLong)"),
+            "note":       .string(esc(pos?.highlights.first.map { ": \($0)" } ?? "")),
         ]
     }
 
@@ -117,7 +127,10 @@ struct HTMLRenderer {
         [
             "institution": .string(esc(e.institution)),
             "area":        .string(esc(e.area)),
+            "location":    .string(esc(e.location.strippingFlagEmoji())),
+            "website":     .string(esc(e.website)),
             "years":       .string("\(e.startDate.formattedAsYear())–\(e.endDate.formattedAsYear())"),
+            "years_long":  .string("\(e.startDate.formattedAsLongMonthYear()) — \(e.endDate.formattedAsLongMonthYear())"),
         ]
     }
 }

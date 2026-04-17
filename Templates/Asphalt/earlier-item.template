@@ -1,0 +1,10 @@
+<div class="item">
+  <h3 class="name">
+    <span class="company-website"><a href="{{website}}">{{website}}</a></span>
+    {{company}} <span class="company-location">{{location}}</span>
+  </h3>
+  <div class="position-row">
+    <div class="row-left">{{role}}</div>
+    <div class="row-right">{{years_long}}</div>
+  </div>
+</div>

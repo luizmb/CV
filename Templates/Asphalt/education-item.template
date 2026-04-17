@@ -1,0 +1,10 @@
+<div class="item">
+  <h3 class="name">
+    <span class="institution-website"><a href="{{website}}">{{website}}</a></span>
+    {{institution}} <span class="institution-location">{{location}}</span>
+  </h3>
+  <div class="course-row">
+    <div class="row-left">{{area}}</div>
+    <div class="row-right">{{years_long}}</div>
+  </div>
+</div>

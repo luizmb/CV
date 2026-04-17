@@ -1,0 +1,7 @@
+<div class="position-row">
+  <div class="row-left">{{title}}</div>
+  <div class="row-right">{{dates_long}}</div>
+</div>
+<ul class="bullets">
+  {{#each bullets bullet}}
+</ul>

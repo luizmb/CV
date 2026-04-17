@@ -21,6 +21,11 @@ extension String {
         cvFormatDate(self, format: "MMM yyyy")
     }
 
+    /// Converts "2024-04-07" → "April/2024"
+    func formattedAsLongMonthYear() -> String {
+        cvFormatDate(self, format: "MMMM/yyyy")
+    }
+
     /// Converts "2024-04-07" → "2024"
     func formattedAsYear() -> String {
         cvFormatDate(self, format: "yyyy")

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>{{css}}</style>
+</head>
+<body>
+<div id="resume">
+  <header>
+    <h1>{{name}}</h1>
+    <p class="goal">{{label}}</p>
+    <p class="header-summary">{{summary}}</p>
+    <div class="contact-table">
+      <div class="contact-left">
+        <div class="contact-item">{{linkedin}}</div>
+        <div class="contact-item">{{email}}</div>
+        <div class="contact-item">{{visa}}</div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-item">{{github}}</div>
+        <div class="contact-item">{{phone}}</div>
+        <div class="contact-item">{{location}}</div>
+      </div>
+    </div>
+  </header>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <ul class="skill-list">
+      {{#each skills skill-row}}
+    </ul>
+  </section>
+
+  <section id="work">
+    <h2>Professional Experience</h2>
+    {{#each jobs job}}
+  </section>
+
+  {{#if earlier_jobs earlier-section}}
+
+  <section id="projects">
+    <h2>Open Source Contribution</h2>
+    <ul class="projects-list">
+      {{#each projects oss-item}}
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    {{#each education education-item}}
+  </section>
+
+  <section id="languages">
+    <h2>Languages</h2>
+    <p class="languages-text">{{languages}}</p>
+  </section>
+</div>
+</body>
+</html>
