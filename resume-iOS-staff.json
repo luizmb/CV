@@ -8,7 +8,7 @@
         "phone": "+44 7828 640869",
         "website": "https://linkedin.com/in/luizmb/en",
         "visa": "Skilled Worker visa",
-        "summary": "Engineer with 23+ years of experience and a track record of setting technical direction at scale. Creator and active contributor to multiple open-source projects. Deep expertise in functional programming and applied category theory — immutable state, isolated side-effects, declarative and reactive systems (Combine, RxSwift, Swift Concurrency). Pioneer in agentic development: built Claude Code automations that measurably accelerated team delivery. Comfortable operating from IC depth through to cross-team technical influence, mentoring and hiring.",
+        "summary": "Engineer with 23+ years across FinTech, MedTech, audio and marketplace apps. Grounded in functional programming and applied category theory — algebraic types, immutable state, side-effect isolation and composability — and applies these principles pragmatically to produce testable, maintainable and near-zero-defect code. Prolific open-source contributor, with libraries spanning reactive programming, hardware protocols and functional abstractions. Track record of setting technical direction across teams, mentoring engineers and hiring. Streamlined the full development cycle through LLM agents and deterministic code generators — from requirements to production-ready code, tests and pull requests.",
         "location": {
             "address": "23 Ormsby Close",
             "postalCode": "LU1 3SN",
@@ -47,10 +47,10 @@
                     "showDetails": true,
                     "highlights": [
                         "Feature development in the Subscriptions squad — the primary company revenue driver — delivering composable SwiftUI flows backed by TCA reducers, immutable state and explicit Combine-based effect pipelines",
-                        "Championed functional programming across the iOS codebase: pure reducers, declarative UI, isolated side-effects and reactive pipelines — raising testability and near-eliminating regression bugs",
-                        "Built a library of Claude Code skills and agentic automations covering Jira management, Git workflows and code-generation scaffolding, measurably accelerating delivery speed for the whole iOS team",
+                        "Championed functional programming across the iOS codebase: pure reducers, declarative UI, side-effect isolation and reactive pipelines — improving testability and all but eliminating regression bugs",
+                        "Built a suite of Claude Code skills and agentic automations covering Jira management, Git workflows and code scaffolding, measurably accelerating delivery speed for the whole iOS team",
                         "Acted as technical authority on iOS architecture decisions across squads, shaping patterns used by multiple feature teams",
-                        "Mentoring, knowledge-sharing and authoring internal and public tech-blog articles on iOS architecture, FP and TDD"
+                        "Mentoring engineers and sharing expertise through internal talks and public tech-blog articles on iOS architecture, functional programming and TDD"
                     ]
                 }
             ]
@@ -58,7 +58,7 @@
         {
             "company": "Huma Therapeutics",
             "location": "🇬🇧 London - UK",
-            "summary": "British MedTech company enabling hospitals and pharma to remotely monitor and research patients through SaMD products",
+            "summary": "British MedTech company building Software as a Medical Device (SaMD) for remote patient monitoring",
             "website": "https://www.huma.com",
             "positions": [
                 {
@@ -67,9 +67,9 @@
                     "endDate": "2024-02-22",
                     "showDetails": true,
                     "highlights": [
-                        "Technical leadership of 11 iOS engineers across multiple time zones — architectural reviews, coding standards, code quality enforcement and mentoring from junior to senior level",
-                        "Drove modularisation of the iOS codebase to enforce clear ownership boundaries, reduce coupling and cut build times across the patient monitoring platform",
-                        "Strengthened unit, integration and snapshot testing practices aligned with SaMD regulatory quality requirements"
+                        "Technical leadership of 11 iOS engineers across multiple time zones — architectural reviews, coding standards and mentoring",
+                        "Drove modularisation to enforce ownership boundaries and cut build times",
+                        "Strengthened testing practices in compliance with SaMD regulatory requirements"
                     ]
                 }
             ]

@@ -69,8 +69,8 @@ struct HTMLRenderer {
     }
 
     private func positionContext(_ pos: Position, companySummary: String) -> Context {
-        let start = pos.startDate.formattedAsMonthYear()
-        let end   = pos.endDate?.formattedAsMonthYear() ?? "Present"
+        let start = pos.startDate.formattedAsYear()
+        let end   = pos.endDate?.formattedAsYear() ?? "Present"
         return [
             "title":           .string(esc(pos.position)),
             "dates":           .string("\(start) – \(end)"),
@@ -81,8 +81,8 @@ struct HTMLRenderer {
 
     private func earlierJobContext(_ company: Company) -> Context {
         let pos   = company.positions.first
-        let start = pos?.startDate.prefix(4) ?? ""
-        let end   = pos?.endDate.map { $0.prefix(4) } ?? "Present"
+        let start = pos?.startDate.formattedAsYear() ?? ""
+        let end   = pos?.endDate?.formattedAsYear() ?? "Present"
         return [
             "company": .string(esc(company.company)),
             "role":    .string(esc(pos?.position ?? "")),
@@ -104,7 +104,7 @@ struct HTMLRenderer {
         [
             "institution": .string(esc(e.institution)),
             "area":        .string(esc(e.area)),
-            "years":       .string("\(e.startDate.prefix(4))–\(e.endDate.prefix(4))"),
+            "years":       .string("\(e.startDate.formattedAsYear())–\(e.endDate.formattedAsYear())"),
         ]
     }
 }

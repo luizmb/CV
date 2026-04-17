@@ -1,16 +1,29 @@
 import Foundation
 
+private let isoParser: DateFormatter = {
+    let f = DateFormatter()
+    f.dateFormat = "yyyy-MM-dd"
+    f.locale = Locale(identifier: "en_GB")
+    return f
+}()
+
+private func cvFormatDate(_ dateString: String, format: String) -> String {
+    guard let date = isoParser.date(from: dateString) else { return dateString }
+    let f = DateFormatter()
+    f.dateFormat = format
+    f.locale = Locale(identifier: "en_GB")
+    return f.string(from: date)
+}
+
 extension String {
-    /// Converts "2024-04-07" → "Apr 2024", or returns "Present" for nil.
+    /// Converts "2024-04-07" → "Apr 2024"
     func formattedAsMonthYear() -> String {
-        let iso = DateFormatter()
-        iso.dateFormat = "yyyy-MM-dd"
-        iso.locale = Locale(identifier: "en_GB")
-        guard let date = iso.date(from: self) else { return self }
-        let out = DateFormatter()
-        out.dateFormat = "MMM yyyy"
-        out.locale = Locale(identifier: "en_GB")
-        return out.string(from: date)
+        cvFormatDate(self, format: "MMM yyyy")
+    }
+
+    /// Converts "2024-04-07" → "2024"
+    func formattedAsYear() -> String {
+        cvFormatDate(self, format: "yyyy")
     }
 
     /// Strip emoji flag characters (used in location strings)
