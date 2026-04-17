@@ -5,12 +5,16 @@ let package = Package(
     name: "CVGenerator",
     platforms: [.macOS(.v13)],
     dependencies: [
-        .package(path: "Packages/HTMLTemplating"),
+        .package(url: "https://github.com/luizmb/NetworkTools.git", branch: "main"),
+        .package(url: "https://github.com/luizmb/FP.git", branch: "main"),
     ],
     targets: [
         .executableTarget(
             name: "CVGenerator",
-            dependencies: ["HTMLTemplating"],
+            dependencies: [
+                .product(name: "HTMLTemplating", package: "NetworkTools"),
+                .product(name: "FP", package: "FP"),
+            ],
             path: "Sources/CVGenerator"
         )
     ]

@@ -33,6 +33,7 @@ body {
     color: #FFFFFF;
     letter-spacing: -0.3px;
     display: block;
+    white-space: nowrap;
     margin-bottom: 2px;
 }
 .hlabel {

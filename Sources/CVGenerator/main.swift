@@ -1,4 +1,5 @@
 import Foundation
+import HTMLTemplating
 
 // MARK: - Argument parsing
 
@@ -26,19 +27,6 @@ let outputArg    = nextArg(after: "--output")
 let templatesDir = nextArg(after: "--templates") ?? "Templates"
 let generatePDF  = args.contains("--pdf")
 
-// MARK: - Load template files
-
-func load(_ path: String) -> String {
-    guard let content = try? String(contentsOfFile: path, encoding: .utf8) else {
-        fputs("Error: cannot read file at \(path)\n", stderr)
-        exit(1)
-    }
-    return content
-}
-
-let template = load("\(templatesDir)/index.html.template")
-let css      = load("\(templatesDir)/style.css")
-
 // MARK: - Load JSON
 
 guard let data = try? Data(contentsOf: URL(fileURLWithPath: inputPath)) else {
@@ -56,12 +44,19 @@ do {
 
 // MARK: - Render HTML
 
-let html = HTMLRenderer(
-    resume: resume,
-    template: template,
-    css: css,
-    fragmentsDir: templatesDir
-).render()
+let env = CVEnvironment(
+    html: HTMLEnvironment.live(path: templatesDir),
+    cssURL: URL(fileURLWithPath: "\(templatesDir)/style.css")
+)
+
+let renderResult = HTMLRenderer(resume: resume).render().runReader(env)
+
+guard case .success(let html) = renderResult else {
+    if case .failure(let err) = renderResult {
+        fputs("Template error: \(err)\n", stderr)
+    }
+    exit(1)
+}
 
 let defaultName = inputPath
     .components(separatedBy: "/").last?

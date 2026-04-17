@@ -1,22 +1,35 @@
 import Foundation
 import HTMLTemplating
+import FP
+
+struct CVEnvironment {
+    let html: HTMLEnvironment
+    let cssURL: URL
+}
 
 struct HTMLRenderer {
 
     let resume: Resume
-    let template: String
-    let css: String
-    let fragmentsDir: String
 
     // MARK: - Entry point
 
-    func render() -> String {
-        HTMLTemplating.render(template, context(), fragmentsDir: fragmentsDir)
+    func render() -> Reader<CVEnvironment, Result<String, TemplateError>> {
+        loadCSS() >>- { css in
+            (HTMLTemplating.loadTemplate("index") >>- { HTMLTemplating.render($0, context(css: css)) })
+                .contramapEnvironment(\.html)
+        }
+    }
+
+    private func loadCSS() -> Reader<CVEnvironment, Result<String, TemplateError>> {
+        .asks { env in
+            env.html.readFile(env.cssURL)
+                .mapError { TemplateError.readError(env.cssURL.lastPathComponent, $0) }
+        }
     }
 
     // MARK: - Top-level context
 
-    private func context() -> Context {
+    private func context(css: String) -> Context {
         let githubs  = resume.basics.profiles.filter { $0.network == "GitHub" }
         let linkedin = resume.basics.profiles.first  { $0.network == "LinkedIn" }
         return [

@@ -262,9 +262,9 @@
         {
             "name": "Apple Platform",
             "keywords": [
-                "SwiftUI", "UIKit", "Combine", "RxSwift", "Modern Concurrency", "TCA", "Swift Macros",
+                "SwiftUI", "UIKit", "SnapKit", "AutoLayout", "Combine", "RxSwift", "Modern Concurrency", "TCA",
                 "SPM", "CoreBluetooth", "Swift Data", "AVFoundation", "SwiftNIO", "Vapor", "CoreML",
-                "Swift Async Algorithms", "CoreLocation", "GCD"
+                "Swift Async Algorithms", "CoreLocation", "GCD", "Swift Macros", "Sourcery", "SwiftGen", "SwiftFormat", "SwiftLint", "Periphery"
             ]
         },
         {
@@ -280,7 +280,7 @@
             "name": "Testing",
             "keywords": [
                 "TDD", "BDD", "Unit tests", "Functional tests", "Snapshot tests", "Integration tests",
-                "E2E tests", "Test pyramid", "Swift Testing", "XCTest", "XCUITest"
+                "E2E tests", "Test pyramid", "Swift Testing", "XCTest", "XCUITest", "Maestro"
             ]
         },
         {
@@ -294,9 +294,9 @@
             "name": "Software Engineering",
             "keywords": [
                 "Redux / Unidirectional dataflow", "Clean architecture", "Modularisation",
-                "CI/CD", "MVVM", "SOLID", "Coordinators", "Design Patterns", "FP", "OOP",
-                "Backend-driven UI", "BFF", "Documentation", "Code reviews", "Refactoring",
-                "Tech Design"
+                "CI/CD", "MVVM", "SOLID", "Coordinators", "Design Patterns", "Dependency Injection", 
+                "Mocking", "FP", "OOP", "Backend-driven UI", "BFF", "Documentation", "Code reviews",
+                "Refactoring", "Tech Design"
             ]
         },
         {
