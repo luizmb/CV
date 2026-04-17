@@ -46,7 +46,9 @@
                     "startDate": "2024-04-07",
                     "showDetails": true,
                     "highlights": [
-                        "Feature development in the Subscriptions squad — the primary company revenue driver — delivering composable SwiftUI flows backed by TCA reducers, immutable state and explicit Combine-based effect pipelines",
+                        "Feature development in the Subscriptions squad — the company's primary revenue driver — contributing to £10.46M ARR and ~180K invoiced subscribers by end of 2025, through composable SwiftUI flows backed by TCA reducers, immutable state and explicit Combine-based effect pipelines",
+                        "Delivered the Feature Engine and New Tiers architecture: a fully dynamic, backend-driven subscription system that cut new-tier time-to-market from 2.5 months to 10 days, drove a £120K ARR uplift in the UK and +£17K MRR in the EU with a 10% free-trial conversion uplift",
+                        "Shipped Upsell v3 (+4% free-trial conversions), Perks (dynamic Max-tier benefits), Rebranding, Travel Insurance (backend-driven, multi-iteration) and France launch in a single cycle; backend-driven/BFF patterns introduced in the squad subsequently adopted by Engagement and Savings squads",
                         "Championed functional programming across the iOS codebase: pure reducers, declarative UI, side-effect isolation and reactive pipelines — improving testability and all but eliminating regression bugs",
                         "Built a suite of Claude Code skills and agentic automations covering Jira management, Git workflows and code scaffolding, measurably accelerating delivery speed for the whole iOS team",
                         "Acted as technical authority on iOS architecture decisions across squads, shaping patterns used by multiple feature teams",
@@ -106,11 +108,12 @@
                     "endDate": "2022-06-30",
                     "showDetails": true,
                     "highlights": [
-                        "Technical leadership of four engineers — code reviews, pair programming, mentoring, hiring and performance tracking",
-                        "Architected all new iOS apps on a purely functional core: immutable state, complete side-effect isolation, declarative SwiftUI/Combine views and TCA/Redux reducers — delivered consistently on schedule with near-zero production crashes",
+                        "Technical leadership of four engineers — code reviews, pair programming, technical and career mentoring, hiring, onboarding; built team processes for knowledge exchange, retrospectives and motivation that became a model for the wider organisation",
+                        "Architected all new iOS apps on a purely functional core: immutable state, complete side-effect isolation, declarative SwiftUI/Combine views and TCA/Redux reducers; enforced TDD across the team — delivered consistently on schedule with near-zero production crashes",
                         "Drove company-wide mobile technical vision, influencing backend and web teams through shared libraries and architecture patterns",
-                        "Hardware integration with audio suppliers over Bluetooth/Bonjour/WAMP protocols; close collaboration with POs, PMs and UX/UI to shape new products",
-                        "Built developer tooling to automate the full development workflow; introduced an open-source culture that produced widely reused GitHub libraries and became a hiring differentiator"
+                        "Hardware integration with audio suppliers over Bluetooth/Bonjour/WAMP protocols; close collaboration with POs, PMs and UX/UI to shape new products; led research initiatives to validate feasibility and track emerging platform trends",
+                        "Co-initiated the Teufel Headphones companion app as an engineering-driven prototype (alongside Android), pitched it to leadership, and delivered it from scratch in under two months — the app turned the headphones line into a significant revenue source during the industry-wide supply chain shortage",
+                        "Built developer tooling to automate the full development workflow (Lokalise, Zeplin, snapshot testing, CI/CD); introduced an open-source culture that produced widely reused GitHub libraries and became a hiring differentiator"
                     ]
                 }
             ]
