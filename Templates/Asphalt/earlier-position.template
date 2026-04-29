@@ -1,0 +1,4 @@
+<div class="position-row">
+  <div class="row-left">{{role}}{{note}}</div>
+  <div class="row-right">{{years_long}}</div>
+</div>

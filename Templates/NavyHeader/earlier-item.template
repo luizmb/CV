@@ -1,1 +1,1 @@
-<li><strong>{{company}}</strong> — {{role}} ({{years}}){{note}}</li>
+<li><strong>{{company}}</strong>{{#each positions earlier-position}}</li>

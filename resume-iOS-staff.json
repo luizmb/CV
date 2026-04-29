@@ -50,7 +50,7 @@
                         "Delivered the Feature Engine and New Tiers architecture: a fully dynamic, backend-driven subscription system that cut new-tier time-to-market from 2.5 months to 10 days, drove a £120K ARR uplift in the UK and +£17K MRR in the EU with a 10% free-trial conversion uplift",
                         "Shipped Upsell v3 (+4% free-trial conversions), Perks (dynamic Max-tier benefits), Rebranding, Travel Insurance (backend-driven, multi-iteration) and France launch in a single cycle; backend-driven/BFF patterns introduced in the squad subsequently adopted by Engagement and Savings squads",
                         "Championed functional programming across the iOS codebase: pure reducers, declarative UI, side-effect isolation and reactive pipelines — improving testability and all but eliminating regression bugs",
-                        "Built a suite of Claude Code skills and agentic automations covering Jira management, Git workflows and code scaffolding, measurably accelerating delivery speed for the whole iOS team",
+                        "Built Claude Code agentic workflows that automate the full feature delivery cycle — reading requirements from Notion, validating designs in Figma, generating all code layers with tests as stacked PRs, and tracking progress back to Jira with subtasks and AC; adopted across the whole iOS team",
                         "Operated as the de facto technical authority in a flat iOS org with no Staff role — authored RFCs and tech design documents adopted across squads, and served as the primary architectural reference for a team of ~10 engineers",
                         "Mentoring engineers and sharing expertise through internal talks on iOS architecture, functional programming and TDD"
                     ]
@@ -90,9 +90,8 @@
                     "showDetails": true,
                     "highlights": [
                         "Managed nine engineers (Android, iOS, backend) across the Riders app domain, balancing delivery pace with technical health and individual growth",
-                        "Performance review, 1:1s, feedbacks, growth conversations, OKR tracking, mentorship, interviewing and onboarding",
-                        "Quarterly roadmap planning, project management using Scrum and Jira",
-                        "Code and architecture reviews across Swift, Kotlin, Go and Ruby — native mobile apps and AWS-hosted backend services (SNS, SQS, EC2, S3 and Lambda) automated by Kubernetes and Terraform",
+                        "Full EM cycle: performance reviews, growth conversations, OKR tracking, roadmap planning, interviewing and onboarding",
+                        "Code and architecture reviews across Swift, Kotlin, Go and Ruby — native mobile apps and AWS-hosted backend services (SNS, SQS, EC2, S3 and Lambda) with infrastructure managed via Kubernetes and Terraform",
                         "RFC/PRD authoring and review, feature design, technical grooming and cross-team dependency management",
                         "Contributions to the iOS platform guild and close collaboration with the iOS and Android staff engineers"
                     ]
@@ -234,11 +233,19 @@
             "positions": [
                 {
                     "position": "Technical Team Leader",
-                    "startDate": "2003-09-01",
+                    "startDate": "2004-07-01",
                     "endDate": "2007-08-01",
                     "showDetails": false,
                     "highlights": [
-                        "Technical leadership, CI automation and agile process improvements for agricultural ERP products (VB, C#, PocketPC)",
+                        "Technical leadership, CI automation and agile process improvements for agricultural ERP products (VB, C#, PocketPC)"
+                    ]
+                },
+                {
+                    "position": "Intern Programmer",
+                    "startDate": "2003-09-01",
+                    "endDate": "2004-07-01",
+                    "showDetails": false,
+                    "highlights": [
                         "Desktop, web and mobile development (VB, C#, PocketPC, Palm OS)"
                     ]
                 }
@@ -284,8 +291,8 @@
         {
             "name": "AI & Agentic Development",
             "keywords": [
-                "Skill Building", "Agentic automation", "Claude Code", "GitHub Copilot",
-                "OpenAI Codex", "LLM-assisted development", "Process automation (Jira, GitHub, Notion/Markdown) via LLMs"
+                "Agentic automation", "Claude Code", "GitHub Copilot",
+                "OpenAI Codex", "LLM-assisted development", "End-to-end feature delivery automation (requirements → code → PRs → Jira)"
             ]
         },
         {

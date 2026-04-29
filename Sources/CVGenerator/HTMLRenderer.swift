@@ -98,19 +98,24 @@ struct HTMLRenderer {
     }
 
     private func earlierJobContext(_ company: Company) -> Context {
-        let pos       = company.positions.first
-        let start     = pos?.startDate.formattedAsYear() ?? ""
-        let end       = pos?.endDate?.formattedAsYear() ?? "Present"
-        let startLong = pos?.startDate.formattedAsLongMonthYear() ?? ""
-        let endLong   = pos?.endDate?.formattedAsLongMonthYear() ?? "Present"
+        [
+            "company":   .string(esc(company.company)),
+            "location":  .string(esc(company.location.strippingFlagEmoji())),
+            "website":   .string(esc(company.website)),
+            "positions": .list(company.positions.map(earlierPositionContext)),
+        ]
+    }
+
+    private func earlierPositionContext(_ pos: Position) -> Context {
+        let start     = pos.startDate.formattedAsYear()
+        let end       = pos.endDate?.formattedAsYear() ?? "Present"
+        let startLong = pos.startDate.formattedAsLongMonthYear()
+        let endLong   = pos.endDate?.formattedAsLongMonthYear() ?? "Present"
         return [
-            "company":    .string(esc(company.company)),
-            "location":   .string(esc(company.location.strippingFlagEmoji())),
-            "website":    .string(esc(company.website)),
-            "role":       .string(esc(pos?.position ?? "")),
+            "role":       .string(esc(pos.position)),
             "years":      .string("\(start)–\(end)"),
             "years_long": .string("\(startLong) — \(endLong)"),
-            "note":       .string(esc(pos?.highlights.first.map { ": \($0)" } ?? "")),
+            "note":       .string(esc(pos.highlights.first.map { ": \($0)" } ?? "")),
         ]
     }
 
