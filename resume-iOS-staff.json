@@ -8,7 +8,7 @@
         "phone": "+44 7828 640869",
         "website": "https://linkedin.com/in/luizmb/en",
         "visa": "Skilled Worker visa",
-        "summary": "Engineer with 23+ years across FinTech, MedTech, audio and marketplace apps. Grounded in functional programming and applied category theory — algebraic types, immutable state, side-effect isolation and composability — and applies these principles pragmatically to produce testable, maintainable and near-zero-defect code. Prolific open-source contributor, with libraries spanning reactive programming, hardware protocols and functional abstractions. Track record of setting technical direction across teams, mentoring engineers and hiring. Streamlined the full development cycle through LLM agents and deterministic code generators — from requirements to production-ready code, tests and pull requests.",
+        "summary": "Engineer with 23+ years across FinTech, MedTech, audio and marketplace apps. Grounded in functional programming and applied category theory, and applies these principles pragmatically to produce testable, maintainable and near-zero-defect code. Prolific open-source contributor, with libraries spanning reactive programming, hardware protocols and functional abstractions. Track record of setting technical direction across teams, mentoring engineers and hiring. An intentional foray into engineering management confirmed that technical leadership — setting architectural direction, raising the quality bar and multiplying the impact of other engineers — is where the greatest leverage lies. Streamlined the full development cycle through LLM agents and deterministic code generators — from requirements to production-ready code, tests and pull requests.",
         "location": {
             "address": "23 Ormsby Close",
             "postalCode": "LU1 3SN",
@@ -46,13 +46,13 @@
                     "startDate": "2024-04-07",
                     "showDetails": true,
                     "highlights": [
-                        "Feature development in the Subscriptions squad — the company's primary revenue driver — contributing to £10.46M ARR and ~180K invoiced subscribers by end of 2025, through composable SwiftUI flows backed by TCA reducers, immutable state and explicit Combine-based effect pipelines",
+                        "Feature development in the Subscriptions squad — the company's primary revenue driver — contributing to £10.46M ARR and ~180K invoiced subscribers by end of 2025",
                         "Delivered the Feature Engine and New Tiers architecture: a fully dynamic, backend-driven subscription system that cut new-tier time-to-market from 2.5 months to 10 days, drove a £120K ARR uplift in the UK and +£17K MRR in the EU with a 10% free-trial conversion uplift",
                         "Shipped Upsell v3 (+4% free-trial conversions), Perks (dynamic Max-tier benefits), Rebranding, Travel Insurance (backend-driven, multi-iteration) and France launch in a single cycle; backend-driven/BFF patterns introduced in the squad subsequently adopted by Engagement and Savings squads",
                         "Championed functional programming across the iOS codebase: pure reducers, declarative UI, side-effect isolation and reactive pipelines — improving testability and all but eliminating regression bugs",
                         "Built a suite of Claude Code skills and agentic automations covering Jira management, Git workflows and code scaffolding, measurably accelerating delivery speed for the whole iOS team",
-                        "Acted as technical authority on iOS architecture decisions across squads, shaping patterns used by multiple feature teams",
-                        "Mentoring engineers and sharing expertise through internal talks and public tech-blog articles on iOS architecture, functional programming and TDD"
+                        "Operated as the de facto technical authority in a flat iOS org with no Staff role — authored RFCs and tech design documents adopted across squads, and served as the primary architectural reference for a team of ~10 engineers",
+                        "Mentoring engineers and sharing expertise through internal talks on iOS architecture, functional programming and TDD"
                     ]
                 }
             ]
@@ -71,7 +71,8 @@
                     "highlights": [
                         "Technical leadership of 11 iOS engineers across multiple time zones — architectural reviews, coding standards and mentoring",
                         "Drove modularisation to enforce ownership boundaries and cut build times",
-                        "Strengthened testing practices in compliance with SaMD regulatory requirements"
+                        "Strengthened testing practices in compliance with SaMD regulatory requirements",
+                        "Departed after a short period — the organisation's leadership culture had fundamental problems and did not meet baseline professional standards"
                     ]
                 }
             ]
@@ -89,9 +90,11 @@
                     "showDetails": true,
                     "highlights": [
                         "Managed nine engineers (Android, iOS, backend) across the Riders app domain, balancing delivery pace with technical health and individual growth",
-                        "Code and architecture reviews across Swift, Kotlin, Go and Ruby — native mobile apps and AWS-hosted backend services",
-                        "Partnered with the iOS platform guild on cross-cutting technical strategy, influencing decisions affecting 50+ mobile engineers",
-                        "RFC/PRD authoring and review, feature design, technical grooming and cross-team dependency management"
+                        "Performance review, 1:1s, feedbacks, growth conversations, OKR tracking, mentorship, interviewing and onboarding",
+                        "Quarterly roadmap planning, project management using Scrum and Jira",
+                        "Code and architecture reviews across Swift, Kotlin, Go and Ruby — native mobile apps and AWS-hosted backend services (SNS, SQS, EC2, S3 and Lambda) automated by Kubernetes and Terraform",
+                        "RFC/PRD authoring and review, feature design, technical grooming and cross-team dependency management",
+                        "Contributions to the iOS platform guild and close collaboration with the iOS and Android staff engineers"
                     ]
                 }
             ]
@@ -109,8 +112,8 @@
                     "showDetails": true,
                     "highlights": [
                         "Technical leadership of four engineers — code reviews, pair programming, technical and career mentoring, hiring, onboarding; built team processes for knowledge exchange, retrospectives and motivation that became a model for the wider organisation",
-                        "Architected all new iOS apps on a purely functional core: immutable state, complete side-effect isolation, declarative SwiftUI/Combine views and TCA/Redux reducers; enforced TDD across the team — delivered consistently on schedule with near-zero production crashes",
-                        "Drove company-wide mobile technical vision, influencing backend and web teams through shared libraries and architecture patterns",
+                        "Architected all new iOS apps on a purely functional core: immutable state, complete side-effect isolation, declarative SwiftUI/Combine views and Redux reducers; enforced TDD across the team — delivered consistently on schedule with near-zero production crashes",
+                        "Established cross-functional processes between Product Design and Engineering from the ground up — coached hardware designers on agile practices, Apple HIG and platform constraints; shaped the firmware communication contracts and protocols governing all app–device interaction",
                         "Hardware integration with audio suppliers over Bluetooth/Bonjour/WAMP protocols; close collaboration with POs, PMs and UX/UI to shape new products; led research initiatives to validate feasibility and track emerging platform trends",
                         "Co-initiated the Teufel Headphones companion app as an engineering-driven prototype (alongside Android), pitched it to leadership, and delivered it from scratch in under two months — the app turned the headphones line into a significant revenue source during the industry-wide supply chain shortage",
                         "Built developer tooling to automate the full development workflow (Lokalise, Zeplin, snapshot testing, CI/CD); introduced an open-source culture that produced widely reused GitHub libraries and became a hiring differentiator"
@@ -231,19 +234,11 @@
             "positions": [
                 {
                     "position": "Technical Team Leader",
-                    "startDate": "2004-07-01",
+                    "startDate": "2003-09-01",
                     "endDate": "2007-08-01",
                     "showDetails": false,
                     "highlights": [
-                        "Technical leadership, CI automation and agile process improvements for agricultural ERP products (VB, C#, PocketPC)"
-                    ]
-                },
-                {
-                    "position": "Intern Programmer",
-                    "startDate": "2003-09-01",
-                    "endDate": "2004-07-01",
-                    "showDetails": false,
-                    "highlights": [
+                        "Technical leadership, CI automation and agile process improvements for agricultural ERP products (VB, C#, PocketPC)",
                         "Desktop, web and mobile development (VB, C#, PocketPC, Palm OS)"
                     ]
                 }
@@ -273,7 +268,7 @@
         {
             "name": "Functional Programming",
             "keywords": [
-                "Category Theory", "Algebraic types", "FAM+ (Functors/Applicatives/Monads/+)",
+                "Category Theory", "Referential transparency", "Algebraic types", "FAM+ (Functors/Applicatives/Monads/+)",
                 "Tacit programming", "Immutable state", "Side-effect isolation",
                 "Declarative programming", "Composability", "Reactive programming",
                 "Operators and precedence"
@@ -296,10 +291,8 @@
         {
             "name": "Software Engineering",
             "keywords": [
-                "Redux / Unidirectional dataflow", "Clean architecture", "Modularisation",
-                "CI/CD", "MVVM", "SOLID", "Coordinators", "Design Patterns", "Dependency Injection", 
-                "Mocking", "FP", "OOP", "Backend-driven UI", "BFF", "Documentation", "Code reviews",
-                "Refactoring", "Tech Design"
+                "Redux / Unidirectional dataflow", "Clean architecture", "MVVM", "Coordinators",
+                "CI/CD", "Backend-driven UI", "BFF", "Tech Design"
             ]
         },
         {
@@ -314,7 +307,7 @@
             "name": "Other platforms",
             "keywords": [
                 "Haskell", "Rust", "Android (Kotlin)",
-                "Microsoft (C#, F#, .NET Core)", "JVM (Java, Scala, Groovy)",
+                "Microsoft (C#, F#, .NET Core)", "JVM (Scala, Java)",
                 "Cloud (AWS, Azure)", "SQL and NoSQL", "Web (Elm, Redux, React)", "Embedded (C++, Espressif/PlatformIO, Arduino)"
             ]
         }
@@ -335,13 +328,28 @@
     ],
     "projects": [
         {
+            "name": "FP",
+            "description": "Comprehensive functional programming library for Swift (iOS, macOS, Linux) — covers functors, applicatives, monads, algebraic types and more; documentation written to teach FP to developers of all levels",
+            "url": "https://github.com/luizmb/FP"
+        },
+        {
+            "name": "NetworkTools",
+            "description": "FP and dependency-injection approach to HTTP client/server communication in Swift — composable request pipelines, JSON decoding and server utilities",
+            "url": "https://github.com/luizmb/NetworkTools"
+        },
+        {
             "name": "SwiftRex",
-            "description": "Open-source unidirectional dataflow (Redux) library for SwiftUI and UIKit, powered by Combine, RxSwift or ReactiveSwift",
+            "description": "Open-source unidirectional dataflow (Redux) library for SwiftUI and UIKit, powered by Combine, RxSwift or ReactiveSwift — currently being rewritten",
             "url": "https://github.com/SwiftRex"
         },
         {
-            "name": "Personal repositories",
-            "description": "FP, CombineWebSocket, CombineNFC, Runge-Kutta numerical method solver for Differential Equations (Calculus), FunctionalParser and many other projects",
+            "name": "FP at Teufel — CocoaHeads Berlin",
+            "description": "Talk on applying functional programming in production iOS apps; slides and Swift Playgrounds available",
+            "url": "https://github.com/luizmb/FP-at-Teufel"
+        },
+        {
+            "name": "Other personal repositories",
+            "description": "CombineWebSocket, CombineNFC, FunctionalParser and many other projects",
             "url": "https://github.com/luizmb?tab=repositories"
         },
         {

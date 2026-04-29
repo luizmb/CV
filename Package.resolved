@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/luizmb/FP.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "750a237f2b45435553ae13c61c6e511a5e7f7c99"
+        "revision" : "ac74e6fc0aed9bfa5791332cdbd36736b40455cf",
+        "version" : "1.3.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/luizmb/NetworkTools.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "0154d7202ca75d1fdfbcbb0bc07c69d186140b73"
+        "revision" : "aff53afc698a798650154e7bd8d236f8fbe240a3",
+        "version" : "0.1.0"
       }
     },
     {

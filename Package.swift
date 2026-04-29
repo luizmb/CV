@@ -5,8 +5,8 @@ let package = Package(
     name: "CVGenerator",
     platforms: [.macOS(.v13)],
     dependencies: [
-        .package(url: "https://github.com/luizmb/NetworkTools.git", branch: "main"),
-        .package(url: "https://github.com/luizmb/FP.git", branch: "main"),
+        .package(url: "https://github.com/luizmb/NetworkTools.git", from: "0.1.0"),
+        .package(url: "https://github.com/luizmb/FP.git", from: "1.3.0"),
     ],
     targets: [
         .executableTarget(
