@@ -1,0 +1,116 @@
+HEADLINE
+Staff iOS Engineer · Functional Programming · Architecture · OSS
+
+
+ABOUT
+Engineer with 23+ years across FinTech, MedTech, audio and marketplace apps. Grounded in functional programming and applied category theory, and applies these principles pragmatically to produce testable, maintainable and near-zero-defect code. Prolific open-source contributor, with libraries spanning reactive programming, hardware protocols and functional abstractions. Track record of setting technical direction across teams, mentoring engineers and hiring. An intentional foray into engineering management confirmed that technical leadership — setting architectural direction, raising the quality bar and multiplying the impact of other engineers — is where the greatest leverage lies. Streamlined the full development cycle through LLM agents and deterministic code generators — from requirements to production-ready code, tests and pull requests.
+
+
+EXPERIENCE
+
+Plum FinTech · Senior iOS Engineer · Apr 2024 – Present · London, UK
+FinTech platform for automated savings and AI-driven investing, with a focus on subscription revenue growth.
+
+- Feature development in the Subscriptions squad — the company's primary revenue driver — contributing to £10.46M ARR and ~180K invoiced subscribers by end of 2025
+- Delivered the Feature Engine and New Tiers architecture: a fully dynamic, backend-driven subscription system that cut new-tier time-to-market from 2.5 months to 10 days, drove a £120K ARR uplift in the UK and +£17K MRR in the EU with a 10% free-trial conversion uplift
+- Shipped Upsell v3 (+4% free-trial conversions), Perks (dynamic Max-tier benefits), Rebranding, Travel Insurance (backend-driven, multi-iteration) and France launch in a single cycle; backend-driven/BFF patterns introduced in the squad subsequently adopted by Engagement and Savings squads
+- Championed functional programming across the iOS codebase: pure reducers, declarative UI, side-effect isolation and reactive pipelines — improving testability and all but eliminating regression bugs
+- Built Claude Code agentic workflows that automate the full feature delivery cycle — reading requirements from Notion, validating designs in Figma, generating all code layers with tests as stacked PRs, and tracking progress back to Jira with subtasks and AC; adopted across the whole iOS team
+- Operated as the de facto technical authority in a flat iOS org with no Staff role — authored RFCs and tech design documents adopted across squads, and served as the primary architectural reference for a team of ~10 engineers
+- Mentoring engineers and sharing expertise through internal talks on iOS architecture, functional programming and TDD
+
+
+Huma Therapeutics · Lead iOS Engineer · Aug 2023 – Feb 2024 · London, UK
+British MedTech company building Software as a Medical Device (SaMD) for remote patient monitoring.
+
+- Technical leadership of 11 iOS engineers across multiple time zones — architectural reviews, coding standards and mentoring
+- Drove modularisation to enforce ownership boundaries and cut build times
+- Strengthened testing practices in compliance with SaMD regulatory requirements
+- Departed after a short period — the organisation's leadership culture had fundamental problems and did not meet baseline professional standards
+
+
+Delivery Hero · Engineering Manager · Jul 2022 – Jun 2023 · Berlin, Germany
+German multinational online food, grocery and goods delivery service.
+
+- Managed nine engineers (Android, iOS, backend) across the Riders app domain, balancing delivery pace with technical health and individual growth
+- Full EM cycle: performance reviews, growth conversations, OKR tracking, roadmap planning, interviewing and onboarding
+- Code and architecture reviews across Swift, Kotlin, Go and Ruby — native mobile apps and AWS-hosted backend services (SNS, SQS, EC2, S3 and Lambda) with infrastructure managed via Kubernetes and Terraform
+- RFC/PRD authoring and review, feature design, technical grooming and cross-team dependency management
+- Contributions to the iOS platform guild and close collaboration with the iOS and Android staff engineers
+
+
+Lautsprecher Teufel · Lead iOS Engineer · Jul 2018 – Jun 2022 · Berlin, Germany
+Traditional German loudspeaker brand offering high-quality consumer audio products controlled via companion apps.
+
+- Technical leadership of four engineers — code reviews, pair programming, technical and career mentoring, hiring, onboarding; built team processes for knowledge exchange, retrospectives and motivation that became a model for the wider organisation
+- Architected all new iOS apps on a purely functional core: immutable state, complete side-effect isolation, declarative SwiftUI/Combine views and Redux reducers; enforced TDD across the team — delivered consistently on schedule with near-zero production crashes
+- Established cross-functional processes between Product Design and Engineering from the ground up — coached hardware designers on agile practices, Apple HIG and platform constraints; shaped the firmware communication contracts and protocols governing all app–device interaction
+- Hardware integration with audio suppliers over Bluetooth/Bonjour/WAMP protocols; close collaboration with POs, PMs and UX/UI to shape new products; led research initiatives to validate feasibility and track emerging platform trends
+- Co-initiated the Teufel Headphones companion app as an engineering-driven prototype (alongside Android), pitched it to leadership, and delivered it from scratch in under two months — the app turned the headphones line into a significant revenue source during the industry-wide supply chain shortage
+- Built developer tooling to automate the full development workflow (Lokalise, Zeplin, snapshot testing, CI/CD); introduced an open-source culture that produced widely reused GitHub libraries and became a hiring differentiator
+
+
+eBay Kleinanzeigen · Senior iOS Software Engineer · Apr 2017 – Jun 2018 · Berlin, Germany
+Platform for free, easy and local trades of goods and services — one of Germany's most-used apps.
+
+- Feature development on one of Germany's top-ranked apps, serving millions of daily users across a large-scale classifieds marketplace
+- Adopted RxSwift and MVVM to decouple and modernise legacy Objective-C code, building new Swift features with unit tests from day one
+- Contributed to architectural discussions and code reviews, improving consistency and testability across a large shared codebase
+
+
+HERE Deutschland GmbH · Senior Software and Release Engineer · Jul 2015 – Mar 2017 · Berlin, Germany
+Map and routing company providing foundations for autonomous driving and urban mobility.
+
+- Designed and maintained iOS CI-as-code release pipelines (JobDSL, Groovy, Ruby/Rake) for HERE WeGo — a globally distributed navigation app with a vast user base
+- iOS feature development (Objective-C) and delivery of a white-label HERE WeGo variant for automotive OEM partners, coordinating integration requirements across teams
+
+
+UUX (now Agile Content) · Senior Software Engineer · Mar 2013 – Jul 2015 · São Paulo, Brazil
+Internet-TV-as-a-Service platform for network operators, handling encoding, CMS, EPG and player delivery.
+
+- Co-led the Platforms team; built iOS, web and SmartTV components (Obj-C, C#, JS) for Telenor MyTV, SKY Online and Telefónica
+
+
+Accentiv' Mimética | Edenred Ticket · Senior .NET Software Engineer · May 2012 – Mar 2013 · São Paulo, Brazil
+
+- Full-stack development and batch integration APIs for Ticket Frete (C#, ASP.NET, SQL Server), a freight platform processing ~30k transactions/month
+
+
+Sonda Telsinc · Senior Software Engineer and Architect · May 2008 – May 2012 · São Paulo, Brazil
+
+- Architect and developer for iOS, PocketPC, embedded and web platforms (C#, Java, Objective-C, C++); R&D prototypes and MVPs for enterprise clients including Braskem, Danone and Sirio-Libanês Hospital
+
+
+Liberty Insurance Brazil · Senior .NET Software Developer · Aug 2007 – Apr 2008 · São Paulo, Brazil
+
+- Maintenance and development of Liberty Affinity (ASP.NET, SOAP, Oracle)
+
+
+Agrisoft · Technical Team Leader · Jul 2004 – Aug 2007 · São Paulo, Brazil
+
+- Technical leadership, CI automation and agile process improvements for agricultural ERP products (VB, C#, PocketPC)
+
+Agrisoft · Intern Programmer · Sep 2003 – Jul 2004 · São Paulo, Brazil
+
+- Desktop, web and mobile development (VB, C#, PocketPC, Palm OS)
+
+
+EDUCATION
+
+Cruzeiro do Sul University · System Analysis and Development (Technologist) · 2013 – 2014 · São Paulo, Brazil
+
+
+PROJECTS / OPEN SOURCE
+
+- FP — Comprehensive functional programming library for Swift (iOS, macOS, Linux) — covers functors, applicatives, monads, algebraic types and more; documentation written to teach FP to developers of all levels · https://github.com/luizmb/FP
+- NetworkTools — FP and dependency-injection approach to HTTP client/server communication in Swift — composable request pipelines, JSON decoding and server utilities · https://github.com/luizmb/NetworkTools
+- SwiftRex — Open-source unidirectional dataflow (Redux) library for SwiftUI and UIKit, powered by Combine, RxSwift or ReactiveSwift — currently being rewritten · https://github.com/SwiftRex
+- FP at Teufel — CocoaHeads Berlin — Talk on applying functional programming in production iOS apps; slides and Swift Playgrounds available · https://github.com/luizmb/FP-at-Teufel
+
+
+LANGUAGES
+Portuguese (Native) · English (Fluent) · German (Basic/A2)
+
+
+SKILLS
+SwiftUI · UIKit · Combine · RxSwift · TCA · Modern Concurrency · SwiftNIO · CoreBluetooth · Swift Macros · SPM · Category Theory · Algebraic types · Functors/Applicatives/Monads · Tacit programming · Immutable state · Side-effect isolation · TDD · BDD · Snapshot tests · Swift Testing · XCTest · Maestro · Agentic automation · Claude Code · LLM-assisted development · Redux · Clean architecture · Backend-driven UI · BFF · CI/CD · Tech leadership · People management · Mentorship · Hiring
